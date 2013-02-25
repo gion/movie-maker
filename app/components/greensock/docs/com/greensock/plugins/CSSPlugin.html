@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../override.css" type="text/css"><meta name="keywords" content="CSSPlugin,com.greensock.plugins.CSSPlugin"><title>com.greensock.plugins.CSSPlugin</title></head><body><script language="javascript" type="text/javascript" src="../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'CSSPlugin - GreenSock JavaScript Documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">GreenSock JavaScript API Docs</td><td class="titleTableTopNav" align="right"><a href="../../../package-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../class-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../all-index-A.html" onclick="loadClassListFrame('../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../index.html?com/greensock/plugins/CSSPlugin.html&amp;com/greensock/plugins/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">CSSPlugin</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#methodSummary">Methods</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CSSPlugin"); titleBar_setSubNav(false,false,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.greensock.plugins</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  CSSPlugin</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">CSSPlugin  <img src="../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> <a href="../../../com/greensock/plugins/TweenPlugin.html">TweenPlugin</a> <img src="../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+ With the help of the CSSPlugin, <b>TweenLite and TweenMax can animate almost any css-related property</b> of DOM elements 
+ including the obvious things like width, height, margins, padding, top, left, and more plus more interesting things like transforms 
+ (rotation, scaleX, scaleY, skewX, skewY, x, and y), colors, percentages, opacity, and more. Load the CSSPlugin js file to enable these 
+ capabilities and then make sure you define your values (in camel case form) inside a "css" property of the <code>vars</code> parameter, 
+ like this:
+ 
+ <div class="listing" version="3.0"><pre>
+//notice the css-related values are inside the "css" object but the ease is NOT:
+TweenLite.to(element, 1, {css:{top:"20px", left:"100px", backgroundColor:"#FF0000"}, ease:Power2.easeOut});
+</pre></div>
+ 
+               <p>
+                  <i>
+                     <b>Note:</b> a common mistake is to forget to wrap css-related properties in a css object which is essential for 
+ specifying your intent. Remember, TweenLite/Max isn't just for tweening css properties. And always use camel case 
+ representations of the properties, so instead of "font-size", you'd use "fontSize".</i>
+               </p>
+ 
+               <p>You can even define properties that are not generally tweenable and TweenLite will apply the property for you (like 
+ position:"absolute" or borderStyle:"solid"). These kinds of non-tweenable properties will be set at the beginning of the 
+ tween (except <code>display:"none"</code> which will be applied at the end of the tween for obvious reasons). It is typically 
+ a good idea to define a unit of measurement (like "24px" instead of "24" or "50%" rather than "50") but the default in most 
+ cases is pixels (px), so you can omit the unit if you prefer. In fact, you can define your own defaults using the 
+ <code>CSSPlugin.suffixMap</code>. And even if the unit of measurement doesn't match the current one, TweenLite will 
+ attempt to convert them for you. So, for example, you could tween a width from "50%" to "200px". </p>
+ 
+               <p>In addition to almost all of the standard css properties, CSSPlugin recognizes some special ones that can be quite convenient:</p>
+ 
+               <ul>
+ 	                <li>transforms: <b>rotation</b>, <b>scaleX</b>, <b>scaleY</b>, <b>scale</b>, <b>skewX</b>, <b>skewY</b>, 
+ 			<b>x</b>, and <b>y</b> - one of the most convenient things about the CSSPlugin is that it greatly simplifies transforms in the various 
+ 			browsers <b>including IE back through version 6!</b> No need to mess with various browser prefixes and funky matrix filters in IE. You can just 
+ 			set transform properties inuitively.
+ <div class="listing" version="3.0"><pre>//much simpler
+TweenLite.to(element, 2, {css:{rotation:30, scaleX:0.8}});
+</pre></div>
+ 
+ By default, rotation, skewX, and skewY use degrees but you can use radians if you prefer. Simply append one of the standard suffixes ("rad" or "deg") like this:
+ <div class="listing" version="3.0"><pre>//use "deg" or "rad"
+TweenLite.to(element, 2, {css:{rotation:"1.25rad", skewX:"30deg"}});
+</pre></div>
+ 
+ To be clear, this is like setting the element's css <code>transform:rotate(1.25rad) skewX(30deg)</code> along with all the other browser prefix 
+ values and IE filter which would be much more verbose. And CSSPlugin will affect the skewX/skewY values in a slightly different (arguably more intuitive) 
+ way than some browsers because visually the object isn't stretched. For example, if you set <code>transform:skewX(85deg)</code> in the browser
+ via CSS, the object would become EXTREMELY long (stretched) whereas with CSSPlugin, it would look more like it sheared in 3D space. Again
+ this was a purposeful design decision because this behavior is more likely what animators desire. You can certainly get the same effect
+ as the default browser behavior by tweening the scaleX/scaleY accordingly, using trigonometry. 
+ 
+ <p>
+                        <i>
+                           <b>Notes about transforms:</b>
+                        </i>
+                     </p>
+                     <ol>
+     	                  <li>
+                           <i>It is typically best to set the element's position to "absolute" to avoid clipping in the browsers. </i>
+                        </li>
+                        <li>
+                           <i>You can use "scale" as a shortcut to control both the "scaleX" and "scaleY" properties identically.</i>
+                        </li>
+                        <li>
+                           <i>The order in which you declare the transform properties makes no difference.</i>
+                        </li>
+                        <li>
+                           <i>If your goal is to animate the x/y position of the element, browsers seem to perform slightly better if you just animate the regular "top" and "left" properties instead of "x" and "y".</i>
+                        </li>
+                        <li>
+                           <i>TweenLite has nothing to do with the rendering quality of the element in the browser. Some browsers seem to render transformed elements beautifully while others don't handle anti-aliasing as well.</i>
+                        </li>
+                     </ol>
+  
+                  </li>
+ 
+ 	                <li>
+                     <b>transformOrigin</b> - Sets the origin around which all transforms occur. By default, it is in the center 
+ of the element ("50% 50%"). You can define the values using the keywords "top", "left", "right", 
+ or "bottom" or you can use percentages (bottom right corner would be "100% 100%") or pixels. If, 
+ for example, you want an object to spin around its top left corner you can do this:
+ 
+ <div class="listing" version="3.0"><pre>//spins around the element's top left corner
+TweenLite.to(element, 2, {css:{rotation:360, transformOrigin:"left top"}});
+</pre></div>
+ 
+                     <p>The first value in the quotes refers to the x-axis and the second refers to the y-axis, so to make the object transform 
+ around exactly 50px in from its left edge and 20px from its top edge, you could do: </p>
+ 
+                     <div class="listing" version="3.0"><pre>
+//spins/scales around a point offset from the top left by 50px, 20px
+TweenLite.to(element, 2, {css:{rotation:270, scale:0.5, transformOrigin:"50px 20px"}});
+</pre></div>
+                  </li>
+ 
+                  <li>
+                     <b>shortRotation</b> - tweens the rotation property in the shortest direction. For example, if the element's rotation 
+ is currently 170 degrees and you want to tween it to -170 degrees, a normal rotation tween would travel a total of 340 degrees in the 
+ counter-clockwise direction, but if you use shortRotation, it would travel 20 degrees in the clockwise direction instead. Example:
+ 
+ <div class="listing" version="3.0"><pre>TweenLite.to(element, 2, {css:{shortRotation:-170}});</pre></div>
+ 
+                  </li>
+ 
+                  <li>
+                     <b>autoAlpha</b> - the same thing as "opacity" except that when the value hits "0", the 
+ "visibility" property will be set to "hidden" in order to improve browser rendering performance and 
+ prevent clicks/interactivity on the target. When the value is anything other than 0, "visibility" will be set to 
+ "visible". And if the element's visibility is initially set to "hidden" and opacity is 1, it will assume opacity 
+ should also start at 0. This makes it simple to start things out on your page as invisible (set your css visibility:hidden) 
+ and then fade them in whenever you want.
+ 
+ <div class="listing" version="3.0"><pre>//fade out and set visibility:hidden
+TweenLite.to(element, 2, {css:{autoAlpha:0}});
+
+//in 2 seconds, fade back in with visibility:visible
+TweenLite.to(element, 2, {css:{autoAlpha:1}, delay:2});
+</pre></div>
+                  </li>
+ 
+                  <li>
+                     <b>className</b> - allows you to morph between classes on an element. For example, let's say myElement has a class of "class1" currently and you want to change to "class2"  and animate the differences, you could do this:
+ 
+ <div class="listing" version="3.0"><pre>TweenLite.to(myElement, 1, {css:{className:"class2"}});</pre></div>
+ 
+                     <p>And if you want to ADD the class to the existing one, you can simply use the "+=" prefix. To remove a class, use the "-=" prefix like this:</p>
+ 
+                     <div class="listing" version="3.0"><pre>TweenLite.to(myElement, 1, {css:{className:"+=class2"}});</pre></div>
+ 
+                     <p>
+                        <i>Note: there are some css-related properties that don't tween like IE filters and 3D transforms (support for those may come in the future).
+  Also, there is a slight speed penalty when using className because the engine needs to loop through all of the css properties to see which 
+ ones are different.</i>
+                     </p>
+ 
+                  </li>
+ 
+                  <li>
+                     <b>bezier</b> - Animate virtually any property (or properties) along a Bezier (curved) path which you define
+ as an array of points/values that can be interpreted in several different ways, like as points through which a Bezier should 
+ be drawn, or cubic or quadratic Bezier control and anchor points, etc. See the 
+ <a href="http://api.greensock.com/js/com/greensock/plugins/BezierPlugin.html" target="">BezierPlugin's documentation</a> for details and 
+ an explanation of all the features available. Don't forget to load the BezierPlugin JavaScript file in order to utilize 
+ its features from within CSSPlugin. Here is an example of a bezier tween that makes an element curve through 3 points 
+ using x and y transform properties and also automatically rotates it along the path as it goes:
+ 
+ <div class="listing" version="3.0"><pre>TweenLite.to(element, 5, {css:{bezier:{curviness:1.25, values:[{x:100, y:200}, {x:250, y:400}, {x:500, y:50}], autoRotate:true}}, ease:Power1.easeOut});</pre></div>
+ 
+                  </li>
+ 
+                  <li>
+                     <b>autoRound</b> - By default, CSSPlugin will round pixel values and zIndex to the closest integer during the tween (the inbetween 
+ values) because it improves browser performance, but if you'd rather disable that behavior, pass <code>autoRound:false</code> in the css object. 
+ You can still use the RoundPropsPlugin to manually define properties that you want rounded.</li>
+ 
+               </ul>
+ 
+ 
+               <p>
+                  <b>Copyright 2008-2012, GreenSock. All rights reserved.</b> This work is subject to the terms in <a href="http://www.greensock.com/terms_of_use.html" target="">http://www.greensock.com/terms_of_use.html</a> or for <a href="http://www.greensock.com/club/" target="">Club GreenSock</a> members, the software agreement that was issued with the membership.</p>
+ 
+            <p></p><br/><hr></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><div class="showHideLinks"><div id="hideInheritedMethod" class="hideInheritedMethod"><a class="showHideLink" href="#methodSummary" onclick="javascript:setInheritedVisible(false,'Method');"><img class="showHideLinkImage" src="../../../images/expanded.gif"> Hide Inherited Public Methods</a></div><div id="showInheritedMethod" class="showInheritedMethod"><a class="showHideLink" href="#methodSummary" onclick="javascript:setInheritedVisible(true,'Method');"><img class="showHideLinkImage" src="../../../images/collapsed.gif"> Show Inherited Public Methods</a></div></div><table cellspacing="0" cellpadding="3" class="summaryTable hideInheritedMethod" id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class="hideInheritedMethod"><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img src="../../../images/inheritedSummary.gif" alt="Inherited" title="Inherited" class="inheritedSummaryImage"></td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="../../../com/greensock/plugins/TweenPlugin.html#activate()" class="signatureLink">activate</a>(plugins:Array):Boolean</div><div class="summaryTableDescription">[static] 
+		 Activates one or more plugins so that TweenLite and TweenMax recognize the associated special properties.</div></td><td class="summaryTableOwnerCol"><a href="../../../com/greensock/plugins/TweenPlugin.html">TweenPlugin</a></td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Tue Sep 4 2012, 12:28 AM -05:00  </center></div></body></html><!--<br/>Tue Sep 4 2012, 12:28 AM -05:00  -->
