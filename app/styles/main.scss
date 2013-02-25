@@ -1,0 +1,192 @@
+@import "compass_twitter_bootstrap";
+
+$timelineWidth: 800px; 
+$timeTrackerWidth: 5px; 
+$tooltipHeight : 35px;
+
+.line-through{
+	text-decoration : line-through;
+}
+
+#wrapper{
+	margin-top : 50px;
+	width : $timelineWidth;
+	
+	
+
+	#timelines{
+		@include user-select(none);
+
+		margin-top : 20px;
+		position : relative;
+		//overflow : hidden; 		
+		//padding : 20px; 
+
+		
+
+		ul{
+			margin-left : 0;
+			background : #ccc;
+			list-style : none;
+			overflow : hidden;
+
+			li{
+
+				width : 80px;
+				height : 60px;
+				float : left;
+				@include user-select(none);
+
+				&.active{
+					img{
+						@include opacity(100);
+					}
+				}
+				img {
+					@include user-select(none);
+					@include opacity(50);
+
+					&:hover,&.active{
+						@include opacity(100);
+					}
+
+					&.thumbnail{
+						width : 100%;
+						height : 100%;
+						padding : 0;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		&:hover{
+			#ruler{
+				background : rgba(255, 0, 0, 0.6);
+			}
+
+			#tooltip{
+				@include opacity(80);
+			}
+		}
+		#tooltip{
+			@include transform(translate(-50%, -100%));
+			top : 0;
+			left : 0;
+		}
+
+		#ruler{
+			position : relative;
+			height : 25px;
+			margin-top: $tooltipHeight;
+			background : #ccc;
+			@include user-select(none);
+			@include transition(all 500ms ease-in-out);
+
+			*{
+				@include user-select(none);
+			}
+			.unit{
+				position : absolute;
+				bottom : 0;
+				border-left: 1px solid black;
+				height : 20%;
+				width: 1px;
+				span{
+					display : none;
+					font-size : 10px;
+				}
+
+				&.visible-unit{
+					span {
+						position : absolute;
+						top : -150%;
+						display : block;
+						@include transform(translate(-50%, 0));
+					}
+					
+					&.bigger-unit{
+						height : 40%;
+					}
+
+					&:first-child{
+						border-left: 0;
+						span{
+							@include transform(translate(0, 0));
+						}
+					}
+					&:last-child{
+						border-left: 0;
+						span{
+							@include transform(translate(-100%, 0));
+						}
+					}
+				}
+			}
+		}
+
+
+
+		#timeTracker{
+			cursor : pointer;
+			height : 100%;
+			z-index : 10;
+			position : absolute;
+			top : 0;
+			left : 0;
+			background-color : #ff9900;
+			width : $timeTrackerWidth;
+			@include opacity(40);
+			@include transition((width 200ms ease-in-out, opacity 200ms ease-in-out));
+
+			&:hover{
+				@include opacity(85);
+				width : 2 * $timeTrackerWidth;
+				margin-left : - $timeTrackerWidth / 2;
+				cursor: col-resize;
+			}
+		}
+	}
+
+	#projector{
+		@include user-select(none);
+		text-align : center;
+		#screen{
+			overflow : hidden;
+			position : relative;
+			cursor : pointer;
+			background : url(../images/ignore/play.png) 50% 50% no-repeat;
+			background-size : 50%;
+			width : 600px;
+			height : 400px;
+			margin : 0 auto;
+			@include transition(all 200ms ease-in-out);
+
+			&:hover{
+				background-size : 75%;
+			};
+
+
+			.item{
+				@include opacity(0);
+				position : absolute;
+				top : 0;
+				left : 0;
+				width : 100%;
+				height : 100%;
+				-webkit-transform-style : preserve-3d;
+
+				&.active{
+					@include opacity(100);
+				}
+
+			}
+		}
+	}
+}
+
+.loading{
+	#screen{
+		background-image : url(../images/ignore/loadinfo.net.gif) !important;
+	} 
+}
