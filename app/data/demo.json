@@ -106,7 +106,7 @@
 	],
 	"music" : [
 		{
-			"name" : "background",
+			"name" : "whatever",
 			"type" : "music",
 			"thumb" : "http://katspaugh.github.com/wavesurfer.js/examples/ex.fm/images/waveforms/2012-12-11-0.png",
 			"source" : [
