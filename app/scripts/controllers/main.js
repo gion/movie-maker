@@ -99,31 +99,31 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 			});
 		}
 	});
+
 	$scope.progress = 0;
-
-
-	$scope.dummynumber = 0;
-
-	$window.setInterval(function(){
-		$scope.dummynumber++;
-		$scope.apply();
-	}, 1000);
-
-/*
-	$window.$.fn.animate2 = function(options){
-		return this.each(function(){
-			this.animate(options.css, options);
-		});
-	}
-	// fade in attributes
-
-	$scope.fadeInAttrs = {
-		css : {
-			opacity : 1
+	$http.get(config.tabsUrl).success(function(data){
+		$scope.panes = data;	
+	});
+	/*$scope.panes = [
+		{
+			title:"Dynamic Title 1", 
+			content:"Dynamic content 1",
+			active : true 
 		},
-		duration : 1000 * 5,
-		success : function(){
-			alert('yey');
+		{ 
+			title:"Dynamic Title 2", 
+			content:"Dynamic content 2",
+			active : false
 		}
-	};*/
+	];*/
+
+	$scope.selectTab = function(pane){
+
+		angular.forEach($scope.panes, function(val, key){
+			val.active = false;
+		});
+
+		pane.active = true;
+	}
+
 }]);

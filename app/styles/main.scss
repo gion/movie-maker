@@ -11,8 +11,35 @@ $tooltipHeight : 35px;
 #wrapper{
 	margin-top : 50px;
 	width : $timelineWidth;
+
+	.clear{
+		clear: both;
+	}
 	
-	
+	.tabbable{
+		width: 500px;
+		height: 400px;
+		width : 50%;
+		float: left;
+
+		.tab-content{
+			$borderRadius : 10px;
+			.items{
+				width: 100px;
+				height: 100px;
+				display: inline-block;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				margin-right: 20px;
+				border-radius: $borderRadius;
+
+				img{
+					width: 100%;
+					height:100%;
+					border-radius: $borderRadius;
+				}
+			}
+		}
+	}
 
 	#timelines{
 		@include user-select(none);
@@ -153,6 +180,9 @@ $tooltipHeight : 35px;
 	#projector{
 		@include user-select(none);
 		text-align : center;
+		width : 50%;
+		float: left;
+
 		#screen{
 			overflow : hidden;
 			position : relative;

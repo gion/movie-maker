@@ -23,7 +23,7 @@
 			"type" : "image",
 			"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
 			"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
-			"delay" : 1,
+			"delay" : 0,
 			"duration" : 2
 		},
 		{
@@ -31,7 +31,7 @@
 			"type" : "image",
 			"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
 			"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
-			"delay" : 0.5,
+			"delay" : 0,
 			"duration" : 1
 		},
 		{
@@ -72,7 +72,7 @@
 				}				
 			],
 			"duration" : 1.5151020288467407,
-			"delay" : 2
+			"delay" : 0
 		},
 		{
 			"name" : "piggy",
