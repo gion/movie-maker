@@ -96,8 +96,13 @@ $tooltipHeight : 35px;
 					display : none;
 					font-size : 10px;
 				}
+				
+				&.bigger-unit{
+					height : 30%;
+				}
 
 				&.visible-unit{
+					height : 40%;
 					span {
 						position : absolute;
 						top : -150%;
@@ -105,9 +110,6 @@ $tooltipHeight : 35px;
 						@include transform(translate(-50%, 0));
 					}
 					
-					&.bigger-unit{
-						height : 40%;
-					}
 
 					&:first-child{
 						border-left: 0;

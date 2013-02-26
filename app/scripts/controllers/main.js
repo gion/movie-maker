@@ -72,7 +72,6 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 	};
 
 
-	$scope.progress = 0;
 
 
 	$http.get(config.demoUrl).success(function(data){
@@ -100,4 +99,31 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 			});
 		}
 	});
+	$scope.progress = 0;
+
+
+	$scope.dummynumber = 0;
+
+	$window.setInterval(function(){
+		$scope.dummynumber++;
+		$scope.apply();
+	}, 1000);
+
+/*
+	$window.$.fn.animate2 = function(options){
+		return this.each(function(){
+			this.animate(options.css, options);
+		});
+	}
+	// fade in attributes
+
+	$scope.fadeInAttrs = {
+		css : {
+			opacity : 1
+		},
+		duration : 1000 * 5,
+		success : function(){
+			alert('yey');
+		}
+	};*/
 }]);

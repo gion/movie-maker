@@ -1,23 +1,23 @@
 <div class="hero-unit" ng-class="{'loading' : !loaded}" ng-cloak ui-event="{'keydown':keyDown($event)}">
-	<h2><span class="line-through">Windows</span> HTML5 movie maker!</h2>
+	<h2><span class="line-through">Windows</span> HTML5 movie maker! ({{dummynumber}})</h2>
 	<div id="wrapper" ng-style='{"width":timelineWidth}'>
 		<div id="projector" ng-click="togglePlayState()">
 			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
 		</div>
 		<div id="timelines" ng-click="changeProgress($event)" ui-event="{mousemove:'updateTooltip($event)'}">
 			
-			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}">
+			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}" style="opacity:1!important;display : block">
 				<div class="tooltip-arrow"></div>
 				<div class="tooltip-inner">{{tooltip.title}}</div>
 			</div>
 			
 			<div id="timeTracker" style="left:{{progress}}%" mm-dragwithinparent="changeProgress($event)"></div>
+
 			<div id="ruler">
-				<div ng-repeat="n in [] | range:101" class='unit' ng-class='{"visible-unit":$index%10==0,"bigger-unit":$index%5==0}' style='left:{{n}}%'>
-					<span>{{$index}}%</span>
+				<div ng-repeat="n in [] | range:101" class='unit' ng-class='{"visible-unit":n%10==0,"bigger-unit":n%5==0}' style='left:{{n}}%'>
+					<span>{{n}}%</span>
 				</div>
 			</div>
-
 			<ul id="visual-timeline">
 				<li ng-repeat="item in timelines.visual" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
 					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />

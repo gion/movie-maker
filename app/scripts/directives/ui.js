@@ -45,4 +45,5 @@ movieMakerApp.directive('mmDragwithinparent', ['$parse', function($parse) {
 
         return element;
     };
+
 }]);
