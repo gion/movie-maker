@@ -60,10 +60,16 @@ $trackHeight : 60px;
 			overflow : hidden;
 			height : $trackHeight;
 
+			&#audio-timeline{
+				li{
+					position : absolute;
+				}
+			}
+
 			li{
 
 				width : 4/3 * $trackHeight;
-				height : 100%;
+				height : $trackHeight;
 				float : left;
 				@include user-select(none);
 

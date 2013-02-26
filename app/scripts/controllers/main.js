@@ -67,23 +67,14 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 
 
-/*
-	$scope.$watch('timelines', function(newVal, oldVal){
+
+
+
+
+	$http.get(config.demoUrl).success(function(data){
+		$scope.timelines = data;	
 		
-		console.log(arguments, !!newVal, !!newVal.audio, !!newVal.music, !!newVal.visual);
-		if(!!newVal && newVal.audio && newVal.visual && newVal.music && !util.isTheSameObj(newVal.visual, oldVal.visual))
-			{
-				initTimeline();
-			}
-		console.log('timelines changed');
-	});*/
-
-	var initTimeline = function initTimeline(){
-		console.log('init timeline');
-		var items = $scope.timelines.visual.concat($scope.timelines.audio).concat($scope.timelines.music);
-
-
-		$window.T = $scope.VisualTimeline = new $timeline.track(items, '#screen');
+		$window.T = $scope.VisualTimeline = $scope.tracks = new $timeline.track($scope.timelines, '#screen');
 		
 
 		$scope.VisualTimeline.onUpdate = function(){
@@ -100,12 +91,22 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 			});
 		}
-	}
 
-	$http.get(config.demoUrl).success(function(data){
-		$scope.timelines = data;	
-		initTimeline();
-	});
+		angular.forEach($scope.tracks.elements, function(track, i){
+			$scope.$watch(function(){
+				return $.map(track, function(){return arguments[0].name}).join('|');
+			}, function(newVal, oldVal){
+					
+					if(!!newVal && $scope.tracks)
+						{
+							util.$safeApply($scope, function(){
+								$scope.tracks.updateElements();
+							});
+						}
+					console.log('timelines changed',arguments);
+				});
+			});
+		});
 
 
 	$scope.progress = 0;
@@ -135,5 +136,12 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 		pane.active = true;
 	}
+
+
+
+	$scope.sortTracks = function(a, b) {alert(4);
+		console.log(arguments);
+		return 0;
+	};
 
 }]);

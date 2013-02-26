@@ -5,18 +5,31 @@ movieMakerApp.factory('$timeline' ,['$window', 'config', 'util', function($windo
 var $ = angular.element;
 
 	function Timeline(elements, outputSelector){
-		this.elements = elements || [];
+		this.elements = elements || {};
 		this.tweens = [];
 		this.timeline = null;
 		this.output = $(outputSelector);
 
-		if(this.elements.length)
+		if(!!this.elements)
 			this.updateElements();
 	}
+	
+	Timeline.getType = function(el){
+		return el.type == 'image' ? 'video' : el.type;
+	};
 
 	Timeline.prototype = {
-
+	/*	getElementsByType : function(t){
+			return $.grep(this.elements, function(el ,i){
+				return Timeline.getType(el) == t;
+			});
+		},*/
 		updateElements : function(){
+			if(this.timeline)
+				this.timeline.clear();
+			if(this.tweens.length)
+				this.tweens = [];
+
 			this
 				.setupTweens()
 				.setupTimeline()
@@ -29,27 +42,28 @@ var $ = angular.element;
 
 		setupTweens : function(){
 			var tweens = this.tweens = [],
-				getType = function(el){
-					return el.type == 'image' ? 'video' : el.type;
-				};
-				
-			var totalDuration  = {
-					audio : 0,
-					music : 0,
-					video : 0
-				};
+				totalDuration;
 
-			angular.forEach(this.elements, function(el, i){
-				var type = getType(el);
-				if(!totalDuration[type])
-					totalDuration[type] = 0;
+			angular.forEach(this.elements, function(arr, type){
+				totalDuration = 0;
+				angular.forEach(arr, function(el, i){
 
-				el.originalDelay = el.delay;
+					el.originalDelay =  el.delay;
 
-				el.delay += totalDuration[type];
-				totalDuration[type] += el.duration;
+					if(type == 'audio')
+						{
+							totalDuration[type] = $window.Math.max(totalDuration[type], el.delay + el.duration);
+						}
+					else
+						{
+							el.delay += totalDuration;
+							totalDuration += el.duration;
+						}
 
-				tweens.push(ItemFactory(el));
+					el._tween = el._tween || ItemFactory(el);
+
+					tweens.push(el._tween);
+				});
 			});
 			return this;
 		},
@@ -94,10 +108,25 @@ var $ = angular.element;
 
 			var totalDuration = this.getDuration();
 
-			angular.forEach(this.elements, function(el, i){
-				el.cssWidth = el.duration * 100 / totalDuration;
-				el.cssMarginLeft = el.originalDelay * 100 / totalDuration;
-				console.log(el);
+			console.log('timeline setup', totalDuration);
+
+
+			angular.forEach(this.elements, function(arr, type){
+				angular.forEach(arr, function(el, i){
+					el.cssWidth = el.duration * 100 / totalDuration;
+					var left = el.originalDelay * 100 / totalDuration;
+
+					if(el.type == 'audio')
+						{
+							el.cssLeft = left;
+							el.cssMarginLeft = 0;
+						}
+					else
+						{
+							el.cssLeft = 0;
+							//el.cssMarginLeft = left;
+						}
+				});
 			});
 
 

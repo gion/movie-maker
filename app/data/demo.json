@@ -1,6 +1,26 @@
 {
 	"visual" : [
-		
+		{
+			"name" : "funky gizmo",
+			"type" : "video",
+			"thumb" : "http://www.808.dk/pics/video/gizmo.jpg",
+			"source" : [
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.webm",
+					"type" : "video/webm"
+				},
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.ogv",
+					"type" : "video/ogg"
+				},
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.mp4",
+					"type" : ""
+				}
+			],
+			"delay" : 0,
+			"duration" : 5.566667079925537
+		},
 		{
 			"name" : "hungry bear",
 			"type" : "video",
@@ -33,27 +53,6 @@
 			"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
 			"delay" : 0,
 			"duration" : 1
-		},
-		{
-			"name" : "funky gizmo",
-			"type" : "video",
-			"thumb" : "http://www.808.dk/pics/video/gizmo.jpg",
-			"source" : [
-				{
-					"src" : "http://www.808.dk/pics/video/gizmo.webm",
-					"type" : "video/webm"
-				},
-				{
-					"src" : "http://www.808.dk/pics/video/gizmo.ogv",
-					"type" : "video/ogg"
-				},
-				{
-					"src" : "http://www.808.dk/pics/video/gizmo.mp4",
-					"type" : ""
-				}
-			],
-			"delay" : 0,
-			"duration" : 5.566667079925537
 		}
 	],
 	"audio" : [
@@ -72,7 +71,7 @@
 				}				
 			],
 			"duration" : 1.5151020288467407,
-			"delay" : 0
+			"delay" : 2
 		},
 		{
 			"name" : "piggy",
@@ -107,7 +106,7 @@
 	],
 	"music" : [
 		{
-			"name" : "whatever",
+			"name" : "background",
 			"type" : "music",
 			"thumb" : "http://katspaugh.github.com/wavesurfer.js/examples/ex.fm/images/waveforms/2012-12-11-0.png",
 			"source" : [
