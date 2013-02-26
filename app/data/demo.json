@@ -1,26 +1,6 @@
 {
 	"visual" : [
-		{
-			"name" : "funky gizmo",
-			"type" : "video",
-			"thumb" : "http://www.808.dk/pics/video/gizmo.jpg",
-			"source" : [
-				{
-					"src" : "http://www.808.dk/pics/video/gizmo.webm",
-					"type" : "video/webm"
-				},
-				{
-					"src" : "http://www.808.dk/pics/video/gizmo.ogv",
-					"type" : "video/ogg"
-				},
-				{
-					"src" : "http://www.808.dk/pics/video/gizmo.mp4",
-					"type" : ""
-				}
-			],
-			"delay" : 0,
-			"duration" : 5.566667079925537
-		},
+		
 		{
 			"name" : "hungry bear",
 			"type" : "video",
@@ -43,7 +23,7 @@
 			"type" : "image",
 			"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
 			"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
-			"delay" : 0,
+			"delay" : 1,
 			"duration" : 2
 		},
 		{
@@ -51,8 +31,29 @@
 			"type" : "image",
 			"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
 			"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
-			"delay" : 0,
+			"delay" : 0.5,
 			"duration" : 1
+		},
+		{
+			"name" : "funky gizmo",
+			"type" : "video",
+			"thumb" : "http://www.808.dk/pics/video/gizmo.jpg",
+			"source" : [
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.webm",
+					"type" : "video/webm"
+				},
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.ogv",
+					"type" : "video/ogg"
+				},
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.mp4",
+					"type" : ""
+				}
+			],
+			"delay" : 0,
+			"duration" : 5.566667079925537
 		}
 	],
 	"audio" : [
