@@ -1,9 +1,22 @@
 <div class="hero-unit" ng-class="{'loading' : !loaded}" ng-cloak ui-event="{'keydown':keyDown($event)}">
 	<h2><span class="line-through">Windows</span> HTML5 movie maker!</h2>
 	<div id="wrapper" ng-style='{"width":timelineWidth}'>
+	    <div class="tabbable">
+			<ul class="nav nav-tabs">
+				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes">
+					<a ng-click="selectTab(pane)" data-toggle="tab">{{pane.title}}</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}">
+					<span ng-repeat="item in pane.content" class="items"><img src="{{item.thumb}}"/></span>
+				</div>
+			</div>
+		</div>
 		<div id="projector" ng-click="togglePlayState()">
 			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
 		</div>
+		<div class="clear"></div>
 		<div id="timelines" ng-click="changeProgress($event)" ui-event="{mousemove:'updateTooltip($event)'}">
 			
 			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}">

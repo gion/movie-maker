@@ -114,6 +114,32 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 		initTimeline();
 	});
 
+
 	$scope.progress = 0;
+
+	$http.get(config.tabsUrl).success(function(data){
+		$scope.panes = data;	
+	});
+	/*$scope.panes = [
+		{
+			title:"Dynamic Title 1", 
+			content:"Dynamic content 1",
+			active : true 
+		},
+		{ 
+			title:"Dynamic Title 2", 
+			content:"Dynamic content 2",
+			active : false
+		}
+	];*/
+
+	$scope.selectTab = function(pane){
+
+		angular.forEach($scope.panes, function(val, key){
+			val.active = false;
+		});
+
+		pane.active = true;
+	}
 
 }]);
