@@ -4,6 +4,8 @@ $timelineWidth: 800px;
 $timeTrackerWidth: 5px; 
 $tooltipHeight : 35px;
 
+$trackHeight : 60px;
+
 .line-through{
 	text-decoration : line-through;
 }
@@ -29,13 +31,21 @@ $tooltipHeight : 35px;
 			background : #ccc;
 			list-style : none;
 			overflow : hidden;
+			height : $trackHeight;
 
 			li{
 
-				width : 80px;
-				height : 60px;
+				width : 4/3 * $trackHeight;
+				height : 100%;
 				float : left;
 				@include user-select(none);
+
+
+				&.clear{
+					width : 0;
+					height : 0;
+					float: none;
+				}
 
 				&.active{
 					img{
@@ -191,4 +201,9 @@ $tooltipHeight : 35px;
 	#screen{
 		background-image : url(../images/ignore/loadinfo.net.gif) !important;
 	} 
+}
+
+.clear{
+	float: none;
+	clear : both;
 }

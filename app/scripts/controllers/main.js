@@ -71,18 +71,27 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 		currentTime : 0
 	};
 
+	var timeTracker = angular.element('#timeTracker');
 
 
+/*
+	$scope.$watch('timelines', function(newVal, oldVal){
+		
+		console.log(arguments, !!newVal, !!newVal.audio, !!newVal.music, !!newVal.visual);
+		if(!!newVal && newVal.audio && newVal.visual && newVal.music && !util.isTheSameObj(newVal.visual, oldVal.visual))
+			{
+				initTimeline();
+			}
+		console.log('timelines changed');
+	});*/
 
-	$http.get(config.demoUrl).success(function(data){
-		$scope.timelines = data;		
-
+	var initTimeline = function initTimeline(){
+		console.log('init timeline');
 		var items = $scope.timelines.visual.concat($scope.timelines.audio).concat($scope.timelines.music);
 
 
 		$window.T = $scope.VisualTimeline = new $timeline.track(items);
 		
-		var timeTracker = angular.element('#timeTracker');
 
 		$scope.VisualTimeline.onUpdate = function(){
 			//timeTracker.css('left', $scope.VisualTimeline.timeline.progress() * 100 + '%');
@@ -98,32 +107,13 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 			});
 		}
+	}
+
+	$http.get(config.demoUrl).success(function(data){
+		$scope.timelines = data;	
+		initTimeline();
 	});
+
 	$scope.progress = 0;
 
-
-	$scope.dummynumber = 0;
-
-	$window.setInterval(function(){
-		$scope.dummynumber++;
-		$scope.apply();
-	}, 1000);
-
-/*
-	$window.$.fn.animate2 = function(options){
-		return this.each(function(){
-			this.animate(options.css, options);
-		});
-	}
-	// fade in attributes
-
-	$scope.fadeInAttrs = {
-		css : {
-			opacity : 1
-		},
-		duration : 1000 * 5,
-		success : function(){
-			alert('yey');
-		}
-	};*/
 }]);
