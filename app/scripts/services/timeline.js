@@ -4,11 +4,11 @@ movieMakerApp.factory('$timeline' ,['$window', 'config', 'util', function($windo
 
 var $ = angular.element;
 
-	function Timeline(elements){
+	function Timeline(elements, outputSelector){
 		this.elements = elements || [];
 		this.tweens = [];
 		this.timeline = null;
-		this.output = $('#screen');
+		this.output = $(outputSelector);
 
 		if(this.elements.length)
 			this.updateElements();
@@ -33,7 +33,7 @@ var $ = angular.element;
 					return el.type == 'image' ? 'video' : el.type;
 				};
 				
-			var totalDuration  = window.totalDuration = {
+			var totalDuration  = {
 					audio : 0,
 					music : 0,
 					video : 0
@@ -56,7 +56,7 @@ var $ = angular.element;
 
 		setupTimeline : function(){
 			var self = this;
-			this.timeline = new util.tween.timelineMax({
+			this.timeline = this.timeline || new util.tween.timelineMax({
 				progress : 100,
 				onUpdate : function(){
 					self.onUpdate();
@@ -66,6 +66,8 @@ var $ = angular.element;
 				paused : true
 		//		smoothChildTiming : true,
 			});
+
+			this.timeline.clear();
 
 			this.timeline.insertMultiple(
 				$.map(this.tweens, function(el, i){

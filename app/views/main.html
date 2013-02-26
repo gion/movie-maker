@@ -8,8 +8,8 @@
 				</li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}">
-					<span ng-repeat="item in pane.content" class="items"><img src="{{item.thumb}}"/></span>
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}" ui-sortable ng-model="pane">
+					<span ng-repeat="item in pane.content" class="items"><img ng-src="{{item.thumb}}"/></span>
 				</div>
 			</div>
 		</div>
