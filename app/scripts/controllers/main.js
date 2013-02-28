@@ -112,8 +112,26 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 
 	$scope.currentPage = 0;
-	$scope.itemPerPage = 3;
+	$scope.itemPerPage = 6;
 	$scope.pagedItems = [];
+	$scope.subpanes = [
+		{
+			title : "Videos",
+			active : true,
+			type : "video"
+		},
+		{
+			title : "Images",
+			active : false,
+			type : "image"
+		},
+		{
+			title : "Titles",
+			active : false,
+			type : "title"
+		}
+	];
+
 
     $scope.prevPage = function () {
         if ($scope.currentPage > 0) {
@@ -128,11 +146,12 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
     };
     
     $scope.setPage = function () {
-        $scope.currentPage = this.n;
+    	$scope.currentPage = this.$index;
     };
 
 	$http.get(config.tabsUrl).success(function(data){
 		$scope.panes = data;
+		$scope.selectTab(data[0]);
 	});
 
 	$scope.selectTab = function(pane){
@@ -140,8 +159,8 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 		angular.forEach($scope.panes, function(val, key){
 			val.active = false;
 		});
-
 		pane.active = true;
+
 		$scope.currentPage = 0;
 		$scope.totalItems = pane.content.length;
 		$scope.pagedItems = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));

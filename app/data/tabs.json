@@ -1,6 +1,7 @@
 [
 	{
 		"title" : "Visual", 
+		"subtab" : true,
 		"content" : [
 			{
 				"name" : "hungry bear",
@@ -17,6 +18,41 @@
 					}
 				],
 				"duration" : 12.62069034576416
+			},		
+			{
+				"name" : "what",
+				"type" : "image",
+				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+				"duration" : 2
+			},		
+			{
+				"name" : "what",
+				"type" : "image",
+				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+				"duration" : 2
+			},		
+			{
+				"name" : "what",
+				"type" : "image",
+				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+				"duration" : 2
+			},		
+			{
+				"name" : "what",
+				"type" : "image",
+				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+				"duration" : 2
+			},		
+			{
+				"name" : "what",
+				"type" : "image",
+				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+				"duration" : 2
 			},		
 			{
 				"name" : "what",
@@ -57,6 +93,7 @@
 	},
 	{ 
 		"title" : "Music", 
+		"subtab" : false,
 		"content" : [
 			{
 				"name" : "horse",
@@ -107,6 +144,7 @@
 	},
 	{ 
 		"title" : "Sound", 
+		"subtab" : false,
 		"content" : [
 			{
 				"name" : "whatever",
