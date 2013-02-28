@@ -6,7 +6,7 @@
 				</li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active; selectTab()" heading="{{pane.title}}" ui-sortable ng-model="pane.content">
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active; selectTab()" heading="{{pane.title}}">
 					<div class="heading">
 						<ul class="nav nav-pills" ng-show="pane.subtab">
 							<li ng-class="{'active' : subpane.active}" ng-repeat="subpane in subpanes" >
@@ -14,7 +14,7 @@
 							</li>
 						</ul>
 					</div>
-					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pane.content:subtype" class="items"><img ng-src="{{item.thumb}}" class="img-polaroid"/></div>
+					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" class="items"><img ng-src="{{item.thumb}}" class="img-polaroid"/></div>
 				</div>
 			</div>
 			<div class="pagination pagination-small pagination-right">
@@ -22,10 +22,10 @@
 					<li ng-class="{disabled: currentPage == 0}">
                         <a href ng-click="prevPage()">«</a>
                     </li>
-                    <li ng-repeat="n in pagedItems | limitTo:itemPerPage" ng-class="{active: $index == currentPage}" ng-click="setPage()">
+                    <li ng-repeat="n in allPages | limitTo:itemPerPage" ng-class="{active: $index == currentPage}" ng-click="setPage()">
                         <a href ng-bind="$index + 1">1</a>
                     </li>
-                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                    <li ng-class="{disabled: currentPage == allPages.length - 1}">
                         <a href ng-click="nextPage()">»</a>
                     </li>
 				</ul>

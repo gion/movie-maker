@@ -87,6 +87,26 @@
 					}
 				],
 				"duration" : 5.566667079925537
+			},
+			{
+				"name" : "funky gizmo",
+				"type" : "video",
+				"thumb" : "http://www.808.dk/pics/video/gizmo.jpg",
+				"source" : [
+					{
+						"src" : "http://www.808.dk/pics/video/gizmo.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "http://www.808.dk/pics/video/gizmo.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "http://www.808.dk/pics/video/gizmo.mp4",
+						"type" : ""
+					}
+				],
+				"duration" : 5.566667079925537
 			}
 		],
 		"active" : true

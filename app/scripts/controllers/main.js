@@ -112,8 +112,8 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 
 	$scope.currentPage = 0;
-	$scope.itemPerPage = 6;
-	$scope.pagedItems = [];
+	$scope.itemPerPage = 3;
+	$scope.allPages = [];
 	$scope.subpanes = [
 		{
 			title : "Videos",
@@ -131,6 +131,7 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 			type : "title"
 		}
 	];
+	
 
 
     $scope.prevPage = function () {
@@ -140,7 +141,7 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
     };
     
     $scope.nextPage = function () {
-        if ($scope.currentPage < $scope.pagedItems.length - 1) {
+        if ($scope.currentPage < $scope.allPages.length - 1) {
             $scope.currentPage++;
         }
     };
@@ -148,6 +149,7 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
     $scope.setPage = function () {
     	$scope.currentPage = this.$index;
     };
+
 
 	$http.get(config.tabsUrl).success(function(data){
 		$scope.panes = data;
@@ -161,9 +163,33 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 		});
 		pane.active = true;
 
+		$scope.subtype = pane.subtab ? "video" : "";
 		$scope.currentPage = 0;
-		$scope.totalItems = pane.content.length;
-		$scope.pagedItems = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
+		$scope.pagedItems = pane.content;
+		$scope.totalItems = $scope.pagedItems.length;
+		$scope.allPages = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
+		if($scope.subtype)
+			$scope.selectSubTab($scope.subpanes[0]);
+	}
+
+	$scope.selectSubTab = function(subpane){
+
+		angular.forEach($scope.subpanes, function(val, key){
+			val.active = false;
+		});
+		subpane.active = true;
+		$scope.subtype = subpane.type;
+
+		$scope.currentPage = 0;
+		$scope.pagedItems = [];
+		angular.forEach($scope.panes[0].content, function(val, key){
+			if(val.type==subpane.type){
+				$scope.pagedItems.push(val);
+			}
+		});
+
+		$scope.totalItems = $scope.pagedItems.length;
+		$scope.allPages = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
 	}
 
 }]);
