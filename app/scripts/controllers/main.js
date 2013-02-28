@@ -31,12 +31,21 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 	$scope.shouldStop = true;
 
 	$scope.togglePlayState = function(){
-		if($scope.VisualTimeline.timeline.paused())
-			$scope.VisualTimeline.timeline.play();
+		if($scope.tracks.timeline.paused())
+			{
+				$scope.tracks.timeline.play();
+			}
+		else
+		if(!$scope.tracks.timeline._active && $scope.tracks.timeline.progress() == 1)
+			{
+				$scope.tracks.timeline.pause();
+				$scope.tracks.timeline.progress(0);
+				$scope.tracks.timeline.play();
+			}
 		else
 			{
-				$scope.VisualTimeline.timeline.pause();
-				$scope.VisualTimeline.tweens.forEach(function(el, i){
+				$scope.tracks.timeline.pause();
+				$scope.tracks.tweens.forEach(function(el, i){
 					if(el.tween._active)
 						el.onPause();
 				});
@@ -44,19 +53,22 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 	}
 
 	$scope.changeProgress = function($event){
-		var paused = $scope.VisualTimeline.timeline.paused();
+		var paused = $scope.tracks.timeline.paused();
 		
-		$scope.VisualTimeline.timeline.pause();
+		$scope.tracks.timeline.pause();
 
-		$scope.VisualTimeline.timeline.progress(($event.pageX - $tracksContainer.offset().left) / config.timelineWidth);
+		$scope.tracks.timeline.progress(($event.pageX - $tracksContainer.offset().left) / config.timelineWidth);
 		
 		if(!paused)
-			$scope.VisualTimeline.timeline.play();
+			$scope.tracks.timeline.play();
 	}
 
 	$scope.updateTooltip = function($event){
+		if(!$scope.tracks || !$scope.tracks.timeline)
+			return;
+
 		var left = ($event.pageX - $tracksContainer.offset().left) / config.timelineWidth * 100,
-			title = left * $scope.VisualTimeline.timeline.totalDuration() / 100;
+			title = left * $scope.tracks.timeline.totalDuration() / 100;
 	
 		util.$safeApply($scope, function(){
 			$scope.tooltip.title = title.toFixed(2) + 's';
@@ -66,7 +78,24 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 
 
 
+function initTimeline(){
+	$window.T = $scope.tracks = new $timeline.track($scope.timelines, '#screen');
 
+	$scope.tracks.onUpdate = function(){
+		//timeTracker.css('left', $scope.tracks.timeline.progress() * 100 + '%');
+		
+
+		util.$safeApply($scope, function(){
+
+			angular.forEach($scope.tracks.timeline.getChildren(), function(el, i){
+				el.owner.activate(el._active);
+			});
+			
+			$scope.progress = $scope.tracks.timeline.progress() * 100;
+
+		});
+	}
+}
 
 
 
@@ -74,36 +103,20 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 	$http.get(config.demoUrl).success(function(data){
 		$scope.timelines = data;	
 		
-		$window.T = $scope.VisualTimeline = $scope.tracks = new $timeline.track($scope.timelines, '#screen');
-		
-
-		$scope.VisualTimeline.onUpdate = function(){
-			//timeTracker.css('left', $scope.VisualTimeline.timeline.progress() * 100 + '%');
-			
-
-			util.$safeApply($scope, function(){
-
-				angular.forEach($scope.VisualTimeline.timeline.getChildren(), function(el, i){
-					el.owner.activate(el._active);
-				});
-				
-				$scope.progress = $scope.VisualTimeline.timeline.progress() * 100;
-
-			});
-		}
+		initTimeline();
 
 		angular.forEach($scope.tracks.elements, function(track, i){
 			$scope.$watch(function(){
-				return $.map(track, function(){return arguments[0].name}).join('|');
+				return $.map(track, function(el){ if(el) return el.name; return '';}).join('|');
 			}, function(newVal, oldVal){
 					
 					if(!!newVal && $scope.tracks)
 						{
+							console.log('timelines changed',arguments);
 							util.$safeApply($scope, function(){
-								$scope.tracks.updateElements();
+								$scope.tracks.updateElements(true);
 							});
 						}
-					console.log('timelines changed',arguments);
 				});
 			});
 		});
@@ -143,5 +156,29 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 		console.log(arguments);
 		return 0;
 	};
+
+
+
+	$scope.onDrop = function(options){
+		window.O = options;
+		if(!options.item)
+			return;
+
+		var s = $(options.event.target).scope();
+		s.tracks.elements[s.name].push(options.item);
+	}
+
+	$scope.removeItemFromTrack = function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var el = $(e.target),
+			scopeName = el.scope().name,
+			i = el.closest('li').index();
+
+		//util.$safeApply($scope, function(){
+			$scope.tracks.elements[scopeName].splice(i, 1);
+			$scope.tracks.updateElements(true);
+		//});
+	}
 
 }]);

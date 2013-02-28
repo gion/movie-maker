@@ -40,30 +40,49 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 		},
 
 		createVideoElement : function(videoObject){
-			var v = angular.element('<video/>'),
-				source = this._getSource(v.get(0),videoObject.source);
+			this.cache = this.cache || {};
+			if(!this.cache[videoObject.id])
+				{
+					var v = angular.element('<video/>'),
+						source = this._getSource(v.get(0),videoObject.source);
 
-			v
-				.attr('preload', 'auto')
-				.attr('autobuffer', '')
-				.attr('src', source.src);
+					v
+						.attr('preload', 'auto')
+						.attr('autobuffer', '')
+						.attr('src', source.src);
 
-			if(source.type)
-				v.attr('type', source.type);
+					if(source.type)
+						v.attr('type', source.type);
+					this.cache[videoObject.id] =  v.get(0);
+					console.log('create video', v);
+				}
+				else
+					console.log('return cached video', this.cache[videoObject.id]);
 
-			console.log('create video', v);
-
-			return v.get(0);
+			return this.cache[videoObject.id];
 		},
 
 		createAudioElement : function(audioObject){
-			var a = new Audio(),
-				source = this._getSource(a, audioObject.source);
+			this.cache = this.cache || {};
 
-			a.src = source.src;
+			if(!this.cache[audioObject.id])
+				{
+					var a = new Audio(),
+						source = this._getSource(a, audioObject.source);
 
-			console.log('new audio element', a);
-			return a;
+					a.src = source.src;
+					this.cache[audioObject.id] = a;
+			
+
+					/*for testing only*/
+					a.volume = 0.05;
+
+					console.log('create audio', a);	
+				}
+				else
+					console.log('return cached audio', this.cache[audioObject.id]);
+
+			return this.cache[audioObject.id];
 		},
 
 		getVideoDetails : function(videoObject){

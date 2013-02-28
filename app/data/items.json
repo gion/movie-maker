@@ -1,0 +1,360 @@
+[
+	{
+		"title" : "Visual", 
+		"content" : [
+			{
+				"id" : "mov1",
+				"name" : "mov1",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1.flv",
+				"delay" : 0,
+				"duration" : 30.014127731323242
+			},
+			{
+				"id" : "mov1_1",
+				"name" : "mov1_1",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_1.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_1.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_1.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_1.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_1.flv",
+				"delay" : 0,
+				"duration" : 2
+			},
+			{
+				"id" : "mov1_2",
+				"name" : "mov1_2",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_2.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_2.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_2.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_2.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_2.flv",
+				"delay" : 0,
+				"duration" : 3.0333330631256104
+			},
+			{
+				"id" : "mov1_3",
+				"name" : "mov1_3",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_3.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_3.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_3.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_3.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_3.flv",
+				"delay" : 0,
+				"duration" : 4
+			},
+			{
+				"id" : "mov1_4",
+				"name" : "mov1_4",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_4.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_4.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_4.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_4.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_4.flv",
+				"delay" : 0,
+				"duration" : 3
+			},
+			{
+				"id" : "mov1_5",
+				"name" : "mov1_5",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_5.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_5.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_5.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_5.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_5.flv",
+				"delay" : 0,
+				"duration" : 4
+			},
+			{
+				"id" : "mov1_6",
+				"name" : "mov1_6",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_6.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_6.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_6.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_6.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_6.flv",
+				"delay" : 0,
+				"duration" : 2.0333330631256104
+			},
+			{
+				"id" : "mov1_7",
+				"name" : "mov1_7",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_7.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_7.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_7.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_7.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_7.flv",
+				"delay" : 0,
+				"duration" : 6
+			},
+			{
+				"id" : "mov1_8",
+				"name" : "mov1_8",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov1_8.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov1_8.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov1_8.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov1_8.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov1_8.flv",
+				"delay" : 0,
+				"duration" : 5.933332920074463
+			},
+			{
+				"id" : "mov2",
+				"name" : "mov2",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov2.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov2.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov2.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov2.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov2.flv",
+				"delay" : 0,
+				"duration" : 45.97926712036133
+			},
+			{
+				"id" : "mov3",
+				"name" : "mov3",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov3.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov3.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov3.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov3.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov3.flv",
+				"delay" : 0,
+				"duration" : 96.67911529541016
+			},
+			{
+				"id" : "mov4",
+				"name" : "mov4",
+				"type" : "video",
+				"thumb" : "assets/video/thumbs/mov4.jpg",
+				"source" : [
+					{
+						"src" : "assets/video/webm/mov4.webm",
+						"type" : "video/webm"
+					},
+					{
+						"src" : "assets/video/ogv/mov4.ogv",
+						"type" : "video/ogg"
+					},
+					{
+						"src" : "assets//mov4.mp4",
+						"type" : ""
+					}
+				],
+				"fallback" : "assets/video/flv/mov4.flv",
+				"delay" : 0,
+				"duration" : 54.98826599121094
+			}
+		],
+		"active" : true
+	},
+	{ 
+		"title" : "Music", 
+		"content" : [
+			{
+				"id" : "m1",
+				"name" : "background",
+				"type" : "music",
+				"thumb" : "http://katspaugh.github.com/wavesurfer.js/examples/ex.fm/images/waveforms/2012-12-11-0.png",
+				"source" : [
+					{
+						"src" : "data/POL-mad-plans-short.wav",
+						"type" : "audio/wav"
+					}
+				],
+				"delay" : 0,
+				"duration" : 21.187357425689697
+			}
+		],
+		"active" : false
+	},
+	{ 
+		"title" : "Sound", 
+		"content" : [
+			{
+				"id" : "a1",
+				"name" : "horse",
+				"type" : "audio",
+				"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
+				"source" : [
+					{
+						"src" : "http://www.w3schools.com/html/horse.mp3",
+						"type" : "audio/mpeg"
+					},
+					{
+						"src" : "http://www.w3schools.com/html/horse.ogg",
+						"type" : "audio/ogg"
+					}				
+				],
+				"duration" : 1.5151020288467407,
+				"delay" : 2
+			},
+			{
+				"id" : "a2",
+				"name" : "piggy",
+				"type" : "audio",
+				"thumb" : "http://terriblybad.com/wp-content/uploads/2010/03/pigs-fly.png",
+				"source" : [
+					{
+						"src" : "http://www.junglewalk.com/Asounds/piglet3.wav",
+						"type" : "audio/wav"
+					}
+				],
+				"delay" : 3,
+				"duration" : 2.2083580493927
+			},
+			{
+				"id" : "a1",
+				"name" : "horse",
+				"type" : "audio",
+				"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
+				"source" : [
+					{
+						"src" : "http://www.w3schools.com/html/horse.mp3",
+						"type" : "audio/mpeg"
+					},
+					{
+						"src" : "http://www.w3schools.com/html/horse.ogg",
+						"type" : "audio/ogg"
+					}
+				],
+				"delay" : 6,
+				"duration" : 1.5151020288467407
+			}
+		],
+		"active" : false
+	}
+]
