@@ -89,6 +89,10 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 			//if it is outside of it's own behaviour...
 				$scope.$apply(fn); 
 			}
+		},
+
+		isTheSameObj : function(a, b){
+			return !!a?JSON.stringify(a):null == !!b?JSON.stringify(b):null;
 		}
 	};
 

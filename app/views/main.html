@@ -1,17 +1,28 @@
-<div class="hero-unit" ng-class="{'loading' : !loaded}" ng-cloak ui-event="{'keydown':keyDown($event)}">
-	<h2><span class="line-through">Windows</span> HTML5 movie maker!</h2>
 	<div id="wrapper" ng-style='{"width":timelineWidth}'>
 	    <div class="tabbable">
 			<ul class="nav nav-tabs">
-				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes">
+				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes" >
 					<a ng-click="selectTab(pane)" data-toggle="tab">{{pane.title}}</a>
 				</li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}">
-					<span  ui-sortable ng-model="item" ng-repeat="item in pane.content" class="items"><img ng-src="{{item.thumb}}"/></span>
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}" ui-sortable ng-model="pane">
+					<div ng-repeat="item in pane.content" class="items"><img ng-src="{{item.thumb}}"/></div>
 				</div>
 			</div>
+			<div class="pagination">
+				<ul>
+					<li ng-class="{disabled: currentPage == 0}">
+                        <a href ng-click="prevPage()">« Prev</a>
+                    </li>
+                    <li ng-repeat="n in pagedItems | limitTo:itemPerPage" ng-class="{active: $index == currentPage}" ng-click="setPage()">
+                        <a href ng-bind="$index + 1">1</a>
+                    </li>
+                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                        <a href ng-click="nextPage()">Next »</a>
+                    </li>
+				</ul>
+			</di>
 		</div>
 		<div id="projector" ng-click="togglePlayState()">
 			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
@@ -31,13 +42,15 @@
 					<span>{{n}}%</span>
 				</div>
 			</div>
-			<ul id="visual-timeline">
-				<li ng-repeat="item in timelines.visual" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
+
+			<ul ng-repeat="(name, track) in timelines | orderBy:name" id="{{name}}-timeline" ui-sortable ng-model="track">
+				<li ng-repeat="item in track" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
 					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
 				</li>
+				<li class="clear"></li>
 			</ul>
 
-			<ul id="audio-timeline">
+			<!-- <ul id="audio-timeline">
 				<li ng-repeat="item in timelines.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
 					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
 				</li>
@@ -48,7 +61,7 @@
 				<li ng-repeat="item in timelines.music" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
 					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
 				</li>
-			</ul>
+			</ul> -->
 		</div>
 	</div>
 </div>

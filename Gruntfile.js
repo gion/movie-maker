@@ -46,7 +46,7 @@ module.exports = function (grunt) {
     connect: {
       livereload: {
         options: {
-          port: 9000,
+          port: 3501,
           // Change this to '0.0.0.0' to access the server from outside.
           hostname: 'localhost',
           middleware: function (connect) {
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          port: 9000,
+          port: 3501,
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),
