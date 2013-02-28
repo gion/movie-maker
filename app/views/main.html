@@ -41,7 +41,7 @@
 			</ul>  -->
 
  
-			<ul ng-repeat="(name, track) in tracks.elements | orderBy:'name':true" id="{{name}}-timeline" ui-sortable ng-model="track" ui-droppable ui-options="{ drop: onDrop, revert : false }">
+			<ul ng-repeat="(name, track) in tracks.elements | orderBy:'name':true" id="{{name}}-timeline" ui-sortable ng-model="track" ui-droppable ui-options="{ drop: onDrop, revert : false,  placeholder: 'ui-state-highlight' }">
 				<li ng-repeat="item in track" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}">
 					<div>
 						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
