@@ -5,22 +5,44 @@ movieMakerApp.factory('$timeline' ,['$window', 'config', 'util', function($windo
 var $ = angular.element;
 
 	function Timeline(elements, outputSelector){
-		this.elements = elements || [];
+		this.elements = elements || {};
 		this.tweens = [];
 		this.timeline = null;
 		this.output = $(outputSelector);
 
-		if(this.elements.length)
+		if(!!this.elements)
 			this.updateElements();
 	}
+	
+	Timeline.getType = function(el){
+		return el.type == 'image' ? 'video' : el.type;
+	};
 
 	Timeline.prototype = {
+	/*	getElementsByType : function(t){
+			return $.grep(this.elements, function(el ,i){
+				return Timeline.getType(el) == t;
+			});
+		},*/
+		updateElements : function(keepProgress){
+			if(this.timeline)
+				{
+					var p = this.timeline.progress();
+					this.timeline.kill();
+					this.timeline.clear();
+					this.timeline = null;
+				}
+			if(this.tweens.length)
+				this.tweens = [];
 
-		updateElements : function(){
+
 			this
 				.setupTweens()
 				.setupTimeline()
 				.setupTimelineOutput();
+
+			if(keepProgress && p)
+				this.timeline.progress(p);
 
 			console.log('new duration is : ' + this.getDuration());
 
@@ -29,34 +51,39 @@ var $ = angular.element;
 
 		setupTweens : function(){
 			var tweens = this.tweens = [],
-				getType = function(el){
-					return el.type == 'image' ? 'video' : el.type;
-				};
-				
-			var totalDuration  = {
-					audio : 0,
-					music : 0,
-					video : 0
-				};
+				totalDuration;
 
-			angular.forEach(this.elements, function(el, i){
-				var type = getType(el);
-				if(!totalDuration[type])
-					totalDuration[type] = 0;
+			angular.forEach(this.elements, function(arr, type){
+				console.log('=============> ', type);
+				totalDuration = 0;
+				angular.forEach(arr, function(el, i){
+					console.log('===> ', el.name);
 
-				el.originalDelay = el.delay;
+					el.originalDelay =  el.delay;
+					el._delay =  el.delay;
 
-				el.delay += totalDuration[type];
-				totalDuration[type] += el.duration;
+					if(type == 'audio')
+						{
+							totalDuration = $window.Math.max(totalDuration, el.delay + el.duration);
+						}
+					else
+						{
+							el._delay += totalDuration;
+							totalDuration += el.duration;
+						}
 
-				tweens.push(ItemFactory(el));
+				//	el._tween = el._tween || ItemFactory(el);
+					el._tween = ItemFactory(el);
+
+					tweens.push(el._tween);
+				});
 			});
 			return this;
 		},
 
 		setupTimeline : function(){
 			var self = this;
-			this.timeline = this.timeline || new util.tween.timelineMax({
+			this.timeline = /*this.timeline || */new util.tween.timelineMax({
 				progress : 100,
 				onUpdate : function(){
 					self.onUpdate();
@@ -94,18 +121,60 @@ var $ = angular.element;
 
 			var totalDuration = this.getDuration();
 
-			angular.forEach(this.elements, function(el, i){
-				el.cssWidth = el.duration * 100 / totalDuration;
-				el.cssMarginLeft = el.originalDelay * 100 / totalDuration;
-				console.log(el);
+			console.log('timeline setup', totalDuration);
+
+
+			angular.forEach(this.elements, function(arr, type){
+				angular.forEach(arr, function(el, i){
+					el.cssWidth = el.duration * 100 / totalDuration;
+					var left = el.originalDelay * 100 / totalDuration;
+
+					if(el.type == 'audio')
+						{
+							el.cssLeft = left;
+							el.cssMarginLeft = 0;
+						}
+					else if(el.type == 'music')
+						{
+							el.cssLeft = 0;
+							el.cssMarginLeft = 0;
+							el.cssWidth = 100;
+						}
+					else
+						{
+							el.cssLeft = 0;
+							//el.cssMarginLeft = left;
+						}
+				});
 			});
 
 
 			return this;
 		},
 
-		getDuration : function(){
+		_getDuration : function(){
 			return this.timeline ? this.timeline.duration() : 0;
+		},
+
+		getTrackDuration : function(track){
+			var total = 0,
+				d = 0;
+
+			
+			angular.forEach(this.elements[track], function(el, i){
+				d = el.duration + el.delay;
+				if(track == 'visual')
+					total += d;
+				else
+					total = $window.Math.max(total, d);
+			});
+
+			return total;
+		},
+
+		getDuration : function(){
+		//	return 60;
+			return $window.Math.max(this.getTrackDuration('audio'), this.getTrackDuration('visual'));
 		},
 
 		getElementsAt : function(percent){
@@ -165,7 +234,7 @@ var $ = angular.element;
 			console.log(this.data.duration);
 			this.tween = util.tween.tweenMax.to(this, this.data.duration,{
 				progress : 100,
-				delay : this.data.delay || 0,
+				delay : this.data._delay || 0,
 			//	paused : true,
 				onInit : function(){
 					console.log('init');
@@ -293,7 +362,7 @@ var $ = angular.element;
 			this.audio = util.createAudioElement(this.data);
 		},
 		onStart : function(){
-			this.audio.currentTime = 0;
+			this.audio.seek(0);
 			this.onUpdate();
 		},
 		onUpdate : function(){
@@ -301,7 +370,7 @@ var $ = angular.element;
 				{
 					this.audio.pause();
 				}
-			else if(this.audio.paused)
+			else if(!this.audio.playing)
 				{
 					this.audio.currentTime = this.tween.time();
 					this.audio.play();

@@ -1,10 +1,16 @@
 @import "compass_twitter_bootstrap";
+@import "animation_mixins.scss";
 
 $timelineWidth: 800px; 
 $timeTrackerWidth: 5px; 
 $tooltipHeight : 35px;
 
 $trackHeight : 60px;
+
+$closeIconSize : 20px;
+
+$itemSize : 75px;
+$itemBorderRadius : 10px;
 
 .line-through{
 	text-decoration : line-through;
@@ -25,6 +31,7 @@ $trackHeight : 60px;
 		float: left;
 
 		.tab-content{
+<<<<<<< HEAD
 			$borderRadius : 10px;
 			height: 290px;
 
@@ -41,10 +48,24 @@ $trackHeight : 60px;
 				padding-bottom: 5px;
 				margin-left: 10px;
 				margin-bottom: 10px;
+=======
+			.items{
+				width: $itemSize;
+				height: $itemSize;
+				display: inline-block;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				margin: $itemBorderRadius / 2;
+				border-radius: $itemBorderRadius;
+				cursor: pointer;
+>>>>>>> af1a9dcebf1ea508912d8efdcef1c5fb073280ce
 
 				img{
 					width:100%;
 					height:100%;
+<<<<<<< HEAD
+=======
+					border-radius: $itemBorderRadius;
+>>>>>>> af1a9dcebf1ea508912d8efdcef1c5fb073280ce
 				}
 			}
 		}
@@ -67,10 +88,16 @@ $trackHeight : 60px;
 			overflow : hidden;
 			height : $trackHeight;
 
+			&#audio-timeline{
+				li{
+					position : absolute;
+				}
+			}
+
 			li{
 
 				width : 4/3 * $trackHeight;
-				height : 100%;
+				height : $trackHeight;
 				float : left;
 				@include user-select(none);
 
@@ -81,11 +108,37 @@ $trackHeight : 60px;
 					float: none;
 				}
 
-				&.active{
+				&.active, &:hover{
 					img{
 						@include opacity(100);
 					}
 				}
+
+				&:hover{
+					.remove-item{
+						display : block;
+					}
+				}
+
+				.remove-item{
+					display : none;
+					width : $closeIconSize;
+					height : $closeIconSize;
+					position : absolute;
+					right : 0;
+					top : 0;
+					margin : $closeIconSize / 8;
+					cursor : pointer;
+					background: url(../images/ignore/close-icon.png) no-repeat;
+					background-size: 100% 100%;
+				}
+
+				div{
+					width : 100%;
+					height : 100%;
+					position: relative;
+				}
+
 				img {
 					@include user-select(none);
 					@include opacity(50);
@@ -98,7 +151,7 @@ $trackHeight : 60px;
 						width : 100%;
 						height : 100%;
 						padding : 0;
-						cursor: pointer;
+						//cursor: pointer;
 					}
 				}
 			}
@@ -124,6 +177,7 @@ $trackHeight : 60px;
 			height : 25px;
 			margin-top: $tooltipHeight;
 			background : #ccc;
+			cursor: pointer;
 			@include user-select(none);
 			@include transition(all 500ms ease-in-out);
 
@@ -186,9 +240,9 @@ $trackHeight : 60px;
 			@include transition((width 200ms ease-in-out, opacity 200ms ease-in-out));
 
 			&:hover{
-				@include opacity(85);
-				width : 2 * $timeTrackerWidth;
-				margin-left : - $timeTrackerWidth / 2;
+				@include opacity(100);
+				/* width : 2 * $timeTrackerWidth;
+				margin-left : - $timeTrackerWidth / 2; */
 				cursor: col-resize;
 			}
 		}
@@ -244,3 +298,31 @@ $trackHeight : 60px;
 	float: none;
 	clear : both;
 }
+
+
+.ui-draggable{
+	&.ui-draggable-dragging{
+		z-index: 1000 !important;
+		opacity : 1 !important;
+		@include opacity(100);
+	}
+}
+
+.ui-sortable-placeholder{
+	background: #f90;
+	visibility: visible!important;
+	@include opacity(50);
+	@include animation(fadeInOut, 2s, ease-in-out, 0, infinite);
+}
+
+
+
+@include keyframe(fadeInOut){
+	0%, 100%{
+		@include opacity(0);
+	}
+	50%{
+		@include opacity(100);
+	}
+}
+

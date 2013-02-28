@@ -1,0 +1,130 @@
+{
+	"visual" : [
+		{
+			"id" : "v1",
+			"name" : "funky gizmo",
+			"type" : "video",
+			"thumb" : "http://www.808.dk/pics/video/gizmo.jpg",
+			"source" : [
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.webm",
+					"type" : "video/webm"
+				},
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.ogv",
+					"type" : "video/ogg"
+				},
+				{
+					"src" : "http://www.808.dk/pics/video/gizmo.mp4",
+					"type" : ""
+				}
+			],
+			"delay" : 0,
+			"duration" : 5.566667079925537
+		},
+		{
+			"id" : "v2",
+			"name" : "hungry bear",
+			"type" : "video",
+			"thumb" : "images/ignore/video-thumb1.png",
+			"source" : [
+				{
+					"type" : "video/mp4",
+					"src" : "http://www.w3schools.com/html/movie.mp4"
+				},
+				{
+					"type" : "video/ogg",
+					"src" : "http://www.w3schools.com/html/movie.ogg"
+				}
+			],
+			"delay" : 0,
+			"duration" : 12.62069034576416
+		},		
+		{
+			"id" : "v3",
+			"name" : "what",
+			"type" : "image",
+			"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+			"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+			"delay" : 0,
+			"duration" : 2
+		},
+		{
+			"id" : "v4",
+			"name" : "no he didn't",
+			"type" : "image",
+			"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
+			"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
+			"delay" : 0,
+			"duration" : 1
+		}
+	],
+	"audio" : [
+		{
+			"id" : "a1",
+			"name" : "horse",
+			"type" : "audio",
+			"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
+			"source" : [
+				{
+					"src" : "http://www.w3schools.com/html/horse.mp3",
+					"type" : "audio/mpeg"
+				},
+				{
+					"src" : "http://www.w3schools.com/html/horse.ogg",
+					"type" : "audio/ogg"
+				}				
+			],
+			"duration" : 1.5151020288467407,
+			"delay" : 2
+		},
+		{
+			"id" : "a2",
+			"name" : "piggy",
+			"type" : "audio",
+			"thumb" : "http://terriblybad.com/wp-content/uploads/2010/03/pigs-fly.png",
+			"source" : [
+				{
+					"src" : "http://www.junglewalk.com/Asounds/piglet3.wav",
+					"type" : "audio/wav"
+				}
+			],
+			"delay" : 3,
+			"duration" : 2.2083580493927
+		},
+		{
+			"id" : "a1",
+			"name" : "horse",
+			"type" : "audio",
+			"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
+			"source" : [
+				{
+					"src" : "http://www.w3schools.com/html/horse.mp3",
+					"type" : "audio/mpeg"
+				},
+				{
+					"src" : "http://www.w3schools.com/html/horse.ogg",
+					"type" : "audio/ogg"
+				}
+			],
+			"delay" : 6,
+			"duration" : 1.5151020288467407
+		}
+	],
+	"music" : [
+		{
+			"id" : "m1",
+			"name" : "background",
+			"type" : "music",
+			"thumb" : "http://katspaugh.github.com/wavesurfer.js/examples/ex.fm/images/waveforms/2012-12-11-0.png",
+			"source" : [
+				{
+					"src" : "data/POL-mad-plans-short.wav",
+					"type" : "audio/wav"
+				}
+			],
+			"delay" : 0,
+			"duration" : 21.187357425689697
+		}
+	]
+}

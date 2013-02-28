@@ -1,6 +1,6 @@
 'use strict';
 
-var movieMakerApp = angular.module('movieMakerApp', ['ui'])
+var movieMakerApp = angular.module('movieMakerApp', ['ui', 'jqyoui'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
