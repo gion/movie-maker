@@ -362,7 +362,7 @@ var $ = angular.element;
 			this.audio = util.createAudioElement(this.data);
 		},
 		onStart : function(){
-			this.audio.seek(0);
+			this.audio.currentTime = 0;
 			this.onUpdate();
 		},
 		onUpdate : function(){
@@ -370,7 +370,7 @@ var $ = angular.element;
 				{
 					this.audio.pause();
 				}
-			else if(!this.audio.playing)
+			else if(this.audio.paused)
 				{
 					this.audio.currentTime = this.tween.time();
 					this.audio.play();
