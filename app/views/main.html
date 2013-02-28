@@ -41,16 +41,45 @@
 			</ul>  -->
 
  
-			<ul ng-repeat="(name, track) in tracks.elements | orderBy:'name':true" id="{{name}}-timeline" ui-sortable ng-model="track" ui-droppable ui-options="{ drop: onDrop, revert : false,  placeholder: 'ui-state-highlight' }">
-				<li ng-repeat="item in track" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}">
+<!-- 			<ul ng-repeat="(name, track) in tracks.elements | orderBy:'name':true" id="{{name}}-timeline" ui-sortable ng-model="track" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+				<li ng-repeat="item in track" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" mm-conditional='[item.type=="audio",{"mm-dragwithinparent":"moveAudio($event)"}]'>
 					<div>
 						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
 						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
 					</div>
 				</li>
 				<li class="clear"></li>
-			</ul> 
+			</ul>  -->
 
+			<ul id="visual-timeline" data-track-type="visual" ui-sortable ng-model="tracks.elements.visual" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+				<li ng-repeat="item in tracks.elements.visual" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" >
+					<div>
+						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
+					</div>
+				</li>
+				<li class="clear"></li>
+			</ul>
+
+			<ul id="audio-timeline" data-track-type="audio" ng-model="tracks.elements.audio" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+				<li ng-repeat="item in tracks.elements.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" mm-dragwithinparent="moveAudioItem($event)" >
+					<div>
+						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
+					</div>
+				</li>
+				<li class="clear"></li>
+			</ul>
+
+			<ul id="music-timeline" data-track-type="music"  ng-model="tracks.elements.music" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+				<li ng-repeat="item in tracks.elements.music" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" >
+					<div>
+						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
+					</div>
+				</li>
+				<li class="clear"></li>
+			</ul>
 
 			<!-- <ul id="audio-timeline">
 				<li ng-repeat="item in timelines.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">

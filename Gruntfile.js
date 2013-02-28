@@ -227,7 +227,8 @@ module.exports = function (grunt) {
             'components/**/*',
             'scripts/vendor/*',
             'views/*',
-            'data/*'
+            'data/*',
+            'assets/**/*'
           ]
         }]
       }

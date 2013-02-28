@@ -18,27 +18,34 @@ movieMakerApp.directive('mmTap', function() {
     };
 });
 
-movieMakerApp.directive('mmDragwithinparent', ['$parse', function($parse) {
+movieMakerApp.directive('mmDragwithinparent', ['$parse', '$window', function($parse, $window) {
     return function(scope, element, attrs) {
         var mousedown = false,
             fn = $parse(attrs.mmDragwithinparent);
+
+                
         element
             .bind('mousedown', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                element.data('left', {'event' : e.pageX,el:element.css('left')});
+           //    console.log(element.css('left'), e, element);
                 return mousedown = true;
             });
+
         angular.element(document).bind('mouseup', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            element.data('left', null);
             return mousedown = false;
         });
+
         element.parent()
             .bind('mousemove', function(e) {
                 if (mousedown) {
                     var params = Array.prototype.slice.call(arguments);
                          return  scope.$apply(function () {
-                        fn(scope, {$event: e, $params: params});
+                        fn(scope, {$event: [e, element, element.data('left')]});
                     });
                 }
             });
@@ -115,3 +122,4 @@ movieMakerApp.directive('uiDroppable', [
     };
   }
 ]);
+

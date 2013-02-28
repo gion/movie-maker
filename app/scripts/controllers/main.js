@@ -52,7 +52,15 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 			}
 	}
 
-	$scope.changeProgress = function($event){
+	$scope.changeProgress = function(obj){
+		if($.isArray(obj))
+			{
+				var $event = obj[0],
+					el = obj[1];
+			}
+		else
+			$event = obj;
+
 		var paused = $scope.tracks.timeline.paused();
 		
 		$scope.tracks.timeline.pause();
@@ -164,21 +172,50 @@ function initTimeline(){
 		if(!options.item)
 			return;
 
-		var s = $(options.event.target).scope();
-		s.tracks.elements[s.name].push(options.item);
+		var el = $(options.event.target),
+			name = el.data('trackType');
+		$scope.tracks.elements[name].push(options.item);
 	}
 
 	$scope.removeItemFromTrack = function(e){
 		e.preventDefault();
 		e.stopPropagation();
 		var el = $(e.target),
-			scopeName = el.scope().name,
+			scopeName = el.closest('ul').data('trackType'),
 			i = el.closest('li').index();
-
 		//util.$safeApply($scope, function(){
 			$scope.tracks.elements[scopeName].splice(i, 1);
 			$scope.tracks.updateElements(true);
 		//});
+	}
+
+
+	$scope.moveAudioItem = function(obj){
+		var self = this,
+			e = obj[0],
+			el = obj[1],
+			originalLeft = obj[2],
+			scopeName = el.closest('ul').data('trackType'),
+			i = el.index(),
+			originalDelay = parseFloat(originalLeft.el.replace('%','')) * 100 / config.timelineWidth,
+			item = $scope.tracks.elements[scopeName][i],
+			movementPercent = (e.pageX - originalLeft.event) * 100 / config.timelineWidth,
+			percent = originalDelay + movementPercent,
+			delay = percent * $scope.tracks.timeline.totalDuration() / 100;
+
+			
+			this.throttledUpdateElements = this.throttledUpdateElements || _.throttle(function(){
+			//	console.error('yeah', delay);
+				$scope.tracks.updateElements();
+			}, 1000);
+
+			util.$safeApply($scope,function(){
+			//	console.log(movementPercent,percent + '%', delay);
+				item.cssLeft = percent;
+				item.delay = delay;
+				self.throttledUpdateElements();
+			});
+
 	}
 
 }]);
