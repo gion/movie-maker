@@ -126,26 +126,10 @@ function initTimeline(){
 
 
 	$scope.currentPage = 0;
-	$scope.itemPerPage = 3;
+	$scope.itemPerPage = 6;
 	$scope.allPages = [];
-	$scope.subpanes = [
-		{
-			title : "Videos",
-			active : true,
-			type : "video"
-		},
-		{
-			title : "Images",
-			active : false,
-			type : "image"
-		},
-		{
-			title : "Titles",
-			active : false,
-			type : "title"
-		}
-	];
-	
+	$scope.visiblePagination = false;
+	$scope.allSubpanes = [];	
 
 
     $scope.prevPage = function () {
@@ -177,11 +161,26 @@ function initTimeline(){
 		});
 		pane.active = true;
 
+		$scope.subpanes = [];
+		$scope.allSubpanes = [];
+
+		angular.forEach(pane.content, function(val, key){
+			if($.inArray(val.type, $scope.allSubpanes) < 0){
+				$scope.allSubpanes.push(val.type);
+				$scope.subpanes.push({
+					title : val.type,
+					type : val.type,
+					active : false
+				});
+			}
+		});
+
 		$scope.subtype = pane.subtab ? "video" : "";
 		$scope.currentPage = 0;
 		$scope.pagedItems = pane.content;
 		$scope.totalItems = $scope.pagedItems.length;
 		$scope.allPages = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
+		$scope.visiblePagination = $scope.allPages.length > 1 ? true : false;
 		if($scope.subtype)
 			$scope.selectSubTab($scope.subpanes[0]);
 	}
@@ -204,11 +203,8 @@ function initTimeline(){
 
 		$scope.totalItems = $scope.pagedItems.length;
 		$scope.allPages = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
-	}
-
-<<<<<<< HEAD
-}]);
-=======
+		$scope.visiblePagination = $scope.allPages.length > 1 ? true : false;
+	};
 
 
 	$scope.sortTracks = function(a, b) {alert(4);
@@ -241,4 +237,3 @@ function initTimeline(){
 	}
 
 }]);
->>>>>>> af1a9dcebf1ea508912d8efdcef1c5fb073280ce

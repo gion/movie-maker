@@ -9,7 +9,7 @@ $trackHeight : 60px;
 
 $closeIconSize : 20px;
 
-$itemSize : 75px;
+$itemSize : 90px;
 $itemBorderRadius : 10px;
 
 .line-through{
@@ -25,47 +25,39 @@ $itemBorderRadius : 10px;
 	}
 	
 	.tabbable{
-		width: 500px;
+		width: 350px;
 		height: 400px;
 		width : 50%;
 		float: left;
 
 		.tab-content{
-<<<<<<< HEAD
-			$borderRadius : 10px;
-			height: 290px;
+			height: $itemSize * 5;
 
-			.heading{
-				height: 60px;
-				width:100%;
+			.tab-pane{
+				height: $itemSize * 3;
 			}
 
-			.items{
-				width: 100px;
-				height: 100px;
-				float: left;
-				padding-right: 5px;
-				padding-bottom: 5px;
-				margin-left: 10px;
-				margin-bottom: 10px;
-=======
+			.heading{
+				height: 40px;
+				width:100%;
+
+				.nav-pills li{
+					text-transform : capitalize;
+				}
+			}
+
 			.items{
 				width: $itemSize;
 				height: $itemSize;
 				display: inline-block;
-				border: 2px solid rgba(0, 0, 0, 0.2);
-				margin: $itemBorderRadius / 2;
+				margin: $itemBorderRadius;
 				border-radius: $itemBorderRadius;
 				cursor: pointer;
->>>>>>> af1a9dcebf1ea508912d8efdcef1c5fb073280ce
 
 				img{
 					width:100%;
 					height:100%;
-<<<<<<< HEAD
-=======
 					border-radius: $itemBorderRadius;
->>>>>>> af1a9dcebf1ea508912d8efdcef1c5fb073280ce
 				}
 			}
 		}

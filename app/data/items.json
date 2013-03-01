@@ -1,6 +1,7 @@
 [
 	{
-		"title" : "Visual", 
+		"title" : "Visual",
+		"subtab"  : true,
 		"content" : [
 			{
 				"id" : "mov1",
@@ -277,6 +278,33 @@
 				"fallback" : "assets/video/flv/mov4.flv",
 				"delay" : 0,
 				"duration" : 54.98826599121094
+			},		
+			{
+				"id" : "v3",
+				"name" : "what",
+				"type" : "image",
+				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
+				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
+				"delay" : 0,
+				"duration" : 2
+			},
+			{
+				"id" : "v4",
+				"name" : "no he didn't",
+				"type" : "image",
+				"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
+				"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
+				"delay" : 0,
+				"duration" : 1
+			},
+			{
+				"id" : "v4",
+				"name" : "no he didn't",
+				"type" : "image",
+				"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
+				"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
+				"delay" : 0,
+				"duration" : 1
 			}
 		],
 		"active" : true

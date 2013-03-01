@@ -6,7 +6,6 @@
 				</li>
 			</ul>
 			<div class="tab-content">
-<<<<<<< HEAD
 				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active; selectTab()" heading="{{pane.title}}">
 					<div class="heading">
 						<ul class="nav nav-pills" ng-show="pane.subtab">
@@ -15,25 +14,21 @@
 							</li>
 						</ul>
 					</div>
-					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" class="items"><img ng-src="{{item.thumb}}" class="img-polaroid"/></div>
-=======
-				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}" ui-sortable ng-model="pane">
-					<span ng-repeat="item in pane.content" class="items" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }"><img ng-src="{{item.thumb}}"/></span>
->>>>>>> af1a9dcebf1ea508912d8efdcef1c5fb073280ce
+					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }" class="items"><img ng-src="{{item.thumb}}" class="img-polaroid"/></div>
 				</div>
-			</div>
-			<div class="pagination pagination-small pagination-right">
-				<ul>
-					<li ng-class="{disabled: currentPage == 0}">
-                        <a href ng-click="prevPage()">«</a>
-                    </li>
-                    <li ng-repeat="n in allPages | limitTo:itemPerPage" ng-class="{active: $index == currentPage}" ng-click="setPage()">
-                        <a href ng-bind="$index + 1">1</a>
-                    </li>
-                    <li ng-class="{disabled: currentPage == allPages.length - 1}">
-                        <a href ng-click="nextPage()">»</a>
-                    </li>
-				</ul>
+				<div class="pagination pagination-small pagination-right" ng-show="visiblePagination">
+					<ul>
+						<li ng-class="{disabled: currentPage == 0}">
+	                        <a href ng-click="prevPage()">«</a>
+	                    </li>
+	                    <li ng-repeat="n in allPages" ng-class="{active: $index == currentPage}" ng-click="setPage()">
+	                        <a href ng-bind="$index + 1">1</a>
+	                    </li>
+	                    <li ng-class="{disabled: currentPage == allPages.length - 1}">
+	                        <a href ng-click="nextPage()">»</a>
+	                    </li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<div id="projector" ng-click="togglePlayState()">
