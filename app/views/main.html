@@ -1,15 +1,33 @@
-<div class="hero-unit" ng-class="{'loading' : !loaded}" ng-cloak ui-event="{'keydown':keyDown($event)}">
-	<h2><span class="line-through">Windows</span> HTML5 movie maker!</h2>
 	<div id="wrapper" ng-style='{"width":timelineWidth}'>
 	    <div class="tabbable">
 			<ul class="nav nav-tabs">
-				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes">
+				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes" >
 					<a ng-click="selectTab(pane)" data-toggle="tab">{{pane.title}}</a>
 				</li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}" ui-sortable ng-model="pane">
-					<span ng-repeat="item in pane.content" class="items" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }"><img ng-src="{{item.thumb}}"/></span>
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active; selectTab()" heading="{{pane.title}}">
+					<div class="heading">
+						<ul class="nav nav-pills" ng-show="pane.subtab">
+							<li ng-class="{'active' : subpane.active}" ng-repeat="subpane in subpanes" >
+								<a ng-click="selectSubTab(subpane)" data-toggle="tab">{{subpane.title}}</a>
+							</li>
+						</ul>
+					</div>
+					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }" class="items"><img ng-src="{{item.thumb}}" class="img-polaroid"/></div>
+				</div>
+				<div class="pagination pagination-small pagination-right" ng-show="visiblePagination">
+					<ul>
+						<li ng-class="{disabled: currentPage == 0}">
+	                        <a href ng-click="prevPage()">«</a>
+	                    </li>
+	                    <li ng-repeat="n in allPages" ng-class="{active: $index == currentPage}" ng-click="setPage()">
+	                        <a href ng-bind="$index + 1">1</a>
+	                    </li>
+	                    <li ng-class="{disabled: currentPage == allPages.length - 1}">
+	                        <a href ng-click="nextPage()">»</a>
+	                    </li>
+					</ul>
 				</div>
 			</div>
 		</div>

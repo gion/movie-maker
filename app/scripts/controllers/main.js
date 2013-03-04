@@ -132,32 +132,87 @@ function initTimeline(){
 
 	$scope.progress = 0;
 
-	$http.get(config.tabsUrl).success(function(data){
 
-		$scope.panes = data;	
+	$scope.currentPage = 0;
+	$scope.itemPerPage = 6;
+	$scope.allPages = [];
+	$scope.visiblePagination = false;
+	$scope.allSubpanes = [];	
+
+
+    $scope.prevPage = function () {
+        if ($scope.currentPage > 0) {
+            $scope.currentPage--;
+        }
+    };
+    
+    $scope.nextPage = function () {
+        if ($scope.currentPage < $scope.allPages.length - 1) {
+            $scope.currentPage++;
+        }
+    };
+    
+    $scope.setPage = function () {
+    	$scope.currentPage = this.$index;
+    };
+
+
+	$http.get(config.tabsUrl).success(function(data){
+		$scope.panes = data;
+		$scope.selectTab(data[0]);
 	});
-	/*$scope.panes = [
-		{
-			title:"Dynamic Title 1", 
-			content:"Dynamic content 1",
-			active : true 
-		},
-		{ 
-			title:"Dynamic Title 2", 
-			content:"Dynamic content 2",
-			active : false
-		}
-	];*/
 
 	$scope.selectTab = function(pane){
 
 		angular.forEach($scope.panes, function(val, key){
 			val.active = false;
 		});
-
 		pane.active = true;
+
+		$scope.subpanes = [];
+		$scope.allSubpanes = [];
+
+		angular.forEach(pane.content, function(val, key){
+			if($.inArray(val.type, $scope.allSubpanes) < 0){
+				$scope.allSubpanes.push(val.type);
+				$scope.subpanes.push({
+					title : val.type,
+					type : val.type,
+					active : false
+				});
+			}
+		});
+
+		$scope.subtype = pane.subtab ? "video" : "";
+		$scope.currentPage = 0;
+		$scope.pagedItems = pane.content;
+		$scope.totalItems = $scope.pagedItems.length;
+		$scope.allPages = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
+		$scope.visiblePagination = $scope.allPages.length > 1 ? true : false;
+		if($scope.subtype)
+			$scope.selectSubTab($scope.subpanes[0]);
 	}
 
+	$scope.selectSubTab = function(subpane){
+
+		angular.forEach($scope.subpanes, function(val, key){
+			val.active = false;
+		});
+		subpane.active = true;
+		$scope.subtype = subpane.type;
+
+		$scope.currentPage = 0;
+		$scope.pagedItems = [];
+		angular.forEach($scope.panes[0].content, function(val, key){
+			if(val.type==subpane.type){
+				$scope.pagedItems.push(val);
+			}
+		});
+
+		$scope.totalItems = $scope.pagedItems.length;
+		$scope.allPages = new Array(parseInt($scope.totalItems / $scope.itemPerPage) + ($scope.totalItems % $scope.itemPerPage > 0 ? 1 : 0));
+		$scope.visiblePagination = $scope.allPages.length > 1 ? true : false;
+	};
 
 
 	$scope.sortTracks = function(a, b) {alert(4);
