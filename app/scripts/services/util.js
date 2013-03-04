@@ -53,13 +53,15 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 
 					if(source.type)
 						v.attr('type', source.type);
-					this.cache[videoObject.id] =  v.get(0);
-					console.log('create video', v);
+					this.cache[videoObject.id] =  v;
+	//				console.log('create video', v);
 				}
-				else
-					console.log('return cached video', this.cache[videoObject.id]);
+			else
+				{
+	//				console.log('return cached video', this.cache[videoObject.id]);
+				}
 
-			return this.cache[videoObject.id];
+			return this.cache[videoObject.id].clone().get(0);
 		},
 
 		createAudioElement : function(audioObject){
@@ -71,18 +73,20 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 						source = this._getSource(a, audioObject.source);
 
 					a.src = source.src;
-					this.cache[audioObject.id] = a;
+					this.cache[audioObject.id] = $(a);
 			
 
 					/*for testing only*/
 					a.volume = 0.05;
 
-					console.log('create audio', a);	
+		//			console.log('create audio', a);	
 				}
 				else
-					console.log('return cached audio', this.cache[audioObject.id]);
+					{
+		//				console.log('return cached audio', this.cache[audioObject.id]);
+					}
 
-			return this.cache[audioObject.id];
+			return this.cache[audioObject.id].clone().get(0);
 		},
 
 		getVideoDetails : function(videoObject){

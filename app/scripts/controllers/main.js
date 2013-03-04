@@ -15,7 +15,7 @@ function($scope, config, util, $http, $timeout, $window, $timeline) {
 	
 	
 	$scope.keyDown = function(){
-		console.log(arguments);
+//		console.log(arguments);
 	};
 
 	$scope.screen = {
@@ -120,7 +120,7 @@ function initTimeline(){
 					
 					if(!!newVal && $scope.tracks)
 						{
-							console.log('timelines changed',arguments);
+					//		console.log('timelines changed',arguments);
 							util.$safeApply($scope, function(){
 								$scope.tracks.updateElements(true);
 							});
@@ -216,20 +216,49 @@ function initTimeline(){
 
 
 	$scope.sortTracks = function(a, b) {alert(4);
-		console.log(arguments);
+	//	console.log(arguments);
 		return 0;
 	};
 
 
 
 	$scope.onDrop = function(options){
+	//	console.warn('drop', arguments);
 		window.O = options;
 		if(!options.item)
 			return;
 
 		var el = $(options.event.target),
-			name = el.data('trackType');
-		$scope.tracks.elements[name].push(options.item);
+			name = el.data('trackType'),
+			item = angular.extend({}, options.item);
+
+
+		// if it's an audio, place it exactly where it's dropped
+		// => change it's delay	
+		if(item.type == 'audio')
+			{
+				var left = options.event.pageX - $(options.scope).offset().left,
+					leftPercent = left * 100 / config.timelineWidth,
+					delay = leftPercent * $scope.tracks.timeline.totalDuration() / 100;
+
+				item.delay = delay;	
+				console.log({
+					left : left,
+					delay : delay,
+					leftPercent : leftPercent,
+					timelineWidth : config.timelineWidth,
+					totalDuration : $scope.tracks.timeline.totalDuration()
+				});				
+			}
+
+		// if it's a music item, remove the existing music elements in the track
+		// because we only need one music item in the music track
+		else if(item.type == 'music')
+			{
+				$scope.tracks.elements[name].splice(0, $scope.tracks.elements[name].length);
+			}
+
+		$scope.tracks.elements[name].push(item);
 	}
 
 	$scope.removeItemFromTrack = function(e){
@@ -271,6 +300,36 @@ function initTimeline(){
 				self.throttledUpdateElements();
 			});
 
+	}
+
+
+	$scope.downloadMovie = function($event){
+		
+
+		util.$safeApply($scope, function(){
+			$scope.loading = true;
+		});
+
+		var data = $scope.tracks.getCleanElementsCopy();
+		/*$scope._currentDownload = $http('POST', config.downloadUrl, data, function(status, response){
+			// success
+			console.info('download success', arguments);
+		}, function(status, response){
+			// error
+			console.error('download fail', arguments);
+		});*/
+	}
+
+	$scope.cancelDownload = function(){
+
+		util.$safeApply($scope, function(){
+			$scope.loading = false;
+		});
+		
+		if(!$scope._currentDownload || $scope._currentDownload.cancel)
+			return;
+
+		$scope._currentDownload.cancel();
 	}
 
 }]);

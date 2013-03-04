@@ -1,0 +1,66 @@
+<div class="hero-unit" ng-class="{'loading' : !loaded}" ng-cloak ui-event="{'keydown':keyDown($event)}">
+	<h2><span class="line-through">Windows</span> HTML5 movie maker!</h2>
+	<div id="wrapper" ng-style='{"width":timelineWidth}'>
+	    <div class="tabbable">
+			<ul class="nav nav-tabs">
+				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes">
+					<a ng-click="selectTab(pane)" data-toggle="tab">{{pane.title}}</a>
+				</li>
+			</ul>
+			<div class="tab-content"  data-drop="true" jqyoui-droppable="{multiple:false}" ng-model="panes">
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active" heading="{{pane.title}}"  ng-model="pane" >
+					<span ng-repeat="item in pane.content" class="items" jqyoui-draggable="{index: {{$index}},animate:false}" data-drag="true" data-jqyoui-options="{helper: 'clone'}" ng-model="item"><img ng-src="{{item.thumb}}"/></span>
+				</div>
+			</div>
+		</div>
+		<div id="projector" ng-click="togglePlayState()">
+			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
+		</div>
+		<div class="clear"></div>
+		<div id="timelines" ng-click="changeProgress($event)" ui-event="{mousemove:'updateTooltip($event)'}">
+			
+			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}">
+				<div class="tooltip-arrow"></div>
+				<div class="tooltip-inner">{{tooltip.title}}</div>
+			</div>
+			
+			<div id="timeTracker" style="left:{{progress}}%" mm-dragwithinparent="changeProgress($event)"></div>
+
+			<div id="ruler">
+				<div ng-repeat="n in [] | range:101" class='unit' ng-class='{"visible-unit":n%10==0,"bigger-unit":n%5==0}' style='left:{{n}}%'>
+					<span>{{n}}%</span>
+				</div>
+			</div>
+
+
+<!-- 			<ul ng-repeat="name in ['video', 'audio', 'music'] | orderBy:'-name'" id="{{name}}-timeline" ui-sortable ng-model="track">
+				<li ng-repeat="item in tracks.getElementsByType(name)" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}">
+					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+				</li>
+				<li class="clear"></li>
+			</ul>  -->
+
+ 
+			<ul ng-repeat="(name, track) in tracks.elements | orderBy:'name':true" id="{{name}}-timeline"  ng-model="track" data-drop="true" jqyoui-droppable="{multiple:false}">
+				<li ng-repeat="item in track" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" jqyoui-draggable="{index: {{$index}},animate:false}" data-drag="true" data-jqyoui-options="{helper: 'clone'}" ng-model="item">
+					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+				</li>
+				<li class="clear"></li>
+			</ul> 
+
+
+			<!-- <ul id="audio-timeline">
+				<li ng-repeat="item in timelines.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
+					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+				</li>
+			</ul>
+
+
+			<ul id="music-timeline">
+				<li ng-repeat="item in timelines.music" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
+					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+				</li>
+			</ul> -->
+		</div>
+	</div>
+</div>

@@ -44,7 +44,7 @@ var $ = angular.element;
 			if(keepProgress && p)
 				this.timeline.progress(p);
 
-			console.log('new duration is : ' + this.getDuration());
+	//		console.log('new duration is : ' + this.getDuration());
 
 			return this;
 		},
@@ -54,10 +54,10 @@ var $ = angular.element;
 				totalDuration;
 
 			angular.forEach(this.elements, function(arr, type){
-				console.log('=============> ', type);
+		//		console.log('=============> ', type);
 				totalDuration = 0;
 				angular.forEach(arr, function(el, i){
-					console.log('===> ', el.name);
+		//			console.log('===> ', el.name);
 
 					el.originalDelay =  el.delay;
 					el._delay =  el.delay;
@@ -121,7 +121,7 @@ var $ = angular.element;
 
 			var totalDuration = this.getDuration();
 
-			console.log('timeline setup', totalDuration);
+	//		console.log('timeline setup', totalDuration);
 
 
 			angular.forEach(this.elements, function(arr, type){
@@ -208,6 +208,20 @@ var $ = angular.element;
 
 		onUpdate : function(){
 
+		},
+
+		getCleanElementsCopy : function(){
+			var elements = {};
+			angular.forEach(angular.extend({}, this.elements), function(arr, type){
+				elements[type] = $.map(arr, function(el, i){
+					var result = {};
+					angular.forEach(config.neededItemAttributes, function(v, j){
+						result[v] = el[v];
+					});
+					return result;
+				});
+			});
+			return elements;
 		}
 	};
 
@@ -231,17 +245,17 @@ var $ = angular.element;
 		constructor : Item,
 		initTween : function(){
 			var self = this;
-			console.log(this.data.duration);
+		//	console.log(this.data.duration);
 			this.tween = util.tween.tweenMax.to(this, this.data.duration,{
 				progress : 100,
 				delay : this.data._delay || 0,
 			//	paused : true,
 				onInit : function(){
-					console.log('init');
+		//			console.log('init');
 					self.onInit();
 				},
 				onStart : function(){
-					console.log('start');
+		//			console.log('start');
 					self.onStart();
 				},
 				onUpdate : function(){
@@ -249,7 +263,7 @@ var $ = angular.element;
 					self.onUpdate();
 				},
 				onComplete : function(){
-					console.log('complete');
+		//			console.log('complete');
 					self.onComplete();
 				}
 			});
