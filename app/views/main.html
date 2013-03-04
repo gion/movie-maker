@@ -14,7 +14,9 @@
 							</li>
 						</ul>
 					</div>
-					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }" class="items"><img ng-src="{{item.thumb}}" class="img-polaroid"/></div>
+					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }" class="items {{pane.title.toLowerCase()}}-item">
+						<img ng-src="{{item.thumb}}" class="img-polaroid"/>
+					</div>
 				</div>
 				<div class="pagination pagination-small pagination-right" ng-show="visiblePagination">
 					<ul>
@@ -35,6 +37,7 @@
 			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
 		</div>
 		<div class="clear"></div>
+
 		<div id="timelines" ui-event="{mousemove:'updateTooltip($event)'}">
 			
 			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}">
@@ -50,26 +53,7 @@
 				</div>
 			</div>
 
-
-<!-- 			<ul ng-repeat="name in ['video', 'audio', 'music'] | orderBy:'-name'" id="{{name}}-timeline" ui-sortable ng-model="track">
-				<li ng-repeat="item in tracks.getElementsByType(name)" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}">
-					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
-				</li>
-				<li class="clear"></li>
-			</ul>  -->
-
- 
-<!-- 			<ul ng-repeat="(name, track) in tracks.elements | orderBy:'name':true" id="{{name}}-timeline" ui-sortable ng-model="track" ui-droppable ui-options="{ drop: onDrop, revert : false}">
-				<li ng-repeat="item in track" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" mm-conditional='[item.type=="audio",{"mm-dragwithinparent":"moveAudio($event)"}]'>
-					<div>
-						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
-						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
-					</div>
-				</li>
-				<li class="clear"></li>
-			</ul>  -->
-
-			<ul id="visual-timeline" data-track-type="visual" ui-sortable ng-model="tracks.elements.visual" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+			<ul id="visual-timeline" data-track-type="visual" ui-sortable ng-model="tracks.elements.visual" ui-droppable ui-options="{ drop: onDrop, revert : false, accept : '.visual-item'}">
 				<li ng-repeat="item in tracks.elements.visual" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" >
 					<div>
 						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
@@ -79,7 +63,7 @@
 				<li class="clear"></li>
 			</ul>
 
-			<ul id="audio-timeline" data-track-type="audio" ng-model="tracks.elements.audio" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+			<ul id="audio-timeline" data-track-type="audio" ng-model="tracks.elements.audio" ui-droppable ui-options="{ drop: onDrop, revert : false, accept : '.sound-item'}">
 				<li ng-repeat="item in tracks.elements.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" mm-dragwithinparent="moveAudioItem($event)" >
 					<div>
 						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
@@ -89,7 +73,7 @@
 				<li class="clear"></li>
 			</ul>
 
-			<ul id="music-timeline" data-track-type="music"  ng-model="tracks.elements.music" ui-droppable ui-options="{ drop: onDrop, revert : false}">
+			<ul id="music-timeline" data-track-type="music"  ng-model="tracks.elements.music" ui-droppable ui-options="{ drop: onDrop, revert : false, accept : '.music-item'}">
 				<li ng-repeat="item in tracks.elements.music" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" >
 					<div>
 						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
@@ -98,19 +82,36 @@
 				</li>
 				<li class="clear"></li>
 			</ul>
+		</div>
 
-			<!-- <ul id="audio-timeline">
-				<li ng-repeat="item in timelines.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
-					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
-				</li>
-			</ul>
+		<div class="download-btn-wapper">
+			<div class="button">
+				<div class="outer">
+					<div class="height">
+						<div class="inner" ng-click="downloadMovie()">
+							download movie
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-			<ul id="music-timeline">
-				<li ng-repeat="item in timelines.music" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%" ng-class="{'active' : !!item.active}">
-					<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
-				</li>
-			</ul> -->
+		<div id="loading" ng-show="loading">
+			<div class="loading">
+				<div class="cube cube1"></div>
+				<div class="cube cube2"></div>
+				<div class="cube cube3"></div>
+				<div class="cube cube4"></div>
+				<div class="cube cube5"></div>
+				<div class="cube cube6"></div>
+				<div class="cube cube7"></div>
+				<div class="cube cube8"></div>
+			<p>
+				This might takea couple of minutes. 
+				<br/>
+				 Please wait or click <a href="#" ng-click="cancelDownload"> here </a>to cancel.
+			</p> 
+			</div>
 		</div>
 	</div>
 </div>

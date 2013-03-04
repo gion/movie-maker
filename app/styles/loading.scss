@@ -1,0 +1,97 @@
+#loading{
+
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left : 0;
+	width : 100%;
+	height : 100%;
+	background: rgba(0,0,0,.8);
+
+	div.loading{
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-top:-75px;
+		margin-left:-75px;
+		width:153px;
+		height:153px;
+	}
+
+	div.cube{
+		position:absolute;
+		margin:-1px;
+		padding:0px;
+		width:50px;
+		height:50px;
+		background: #fff;
+		background : rgba(245, 245, 245, 0.65);
+		display:inline-block;
+	}
+
+	div.cube1{margin:0px 0px 0px 0px; @include animation(cube1, .5s, linear, 0, infinite)}
+	div.cube2{margin:0px 0px 0px 51px; @include animation(cube2, .5s, linear, 0, infinite)}
+	div.cube3{margin:0px 0px 0px 102px; @include animation(cube3, .5s, linear, 0, infinite)}
+	div.cube4{margin:51px 0px 0px 0px; @include animation(cube4, .5s, linear, 0, infinite)}
+	div.cube5{margin:51px 0px 0px 51px;}
+	div.cube6{margin:51px 0px 0px 102px; @include animation(cube6, .5s, linear, 0, infinite)}
+	div.cube7{margin:102px 0px 0px 0px; @include animation(cube7, .5s, linear, 0, infinite)}
+	div.cube8{margin:102px 0px 0px 51px; @include animation(cube8, .5s, linear, 0, infinite)}
+
+	p{
+		position: absolute;
+		bottom: -100px;
+		width: 100%;
+		color: #fff;
+	}
+}
+
+@-webkit-keyframes cube1{
+	  0%{margin:0px 0px 0px 0px;}
+	 25%{margin:0px 0px 0px 0px;}
+	 50%{margin:0px 0px 0px 51px;}
+	 75%{margin:0px 0px 0px 51px;}
+	100%{margin:0px 0px 0px 51px;}
+}
+@-webkit-keyframes cube2{
+	  0%{margin:0px 0px 0px 51px;}
+	 25%{margin:0px 0px 0px 51px;}
+	 50%{margin:0px 0px 0px 102px;}
+	 75%{margin:0px 0px 0px 102px;}
+	100%{margin:0px 0px 0px 102px;}
+}
+@-webkit-keyframes cube3{
+	  0%{margin:0px 0px 0px 102px;}
+	 25%{margin:51px 0px 0px 102px;}
+	 50%{margin:51px 0px 0px 102px;}
+	 75%{margin:51px 0px 0px 102px;}
+	100%{margin:51px 0px 0px 102px;}
+}
+@-webkit-keyframes cube4{
+	  0%{margin:51px 0px 0px 0px;}
+	 25%{margin:51px 0px 0px 0px;}
+	 50%{margin:51px 0px 0px 0px;}
+	 75%{margin:0px 0px 0px 0px;}
+	100%{margin:0px 0px 0px 0px;}
+}
+@-webkit-keyframes cube6{
+	  0%{margin:51px 0px 0px 102px;}
+	 25%{margin:102px 0px 0px 102px;}
+	 50%{margin:102px 0px 0px 102px;}
+	 75%{margin:102px 0px 0px 102px;}
+	100%{margin:102px 0px 0px 51px;}
+}
+@-webkit-keyframes cube7{
+	  0%{margin:102px 0px 0px 0px;}
+	 25%{margin:102px 0px 0px 0px;}
+	 50%{margin:102px 0px 0px 0px;}
+	 75%{margin:51px 0px 0px 0px;}
+	100%{margin:51px 0px 0px 0px;}
+}
+@-webkit-keyframes cube8{
+	  0%{margin:102px 0px 0px 51px;}
+	 25%{margin:102px 0px 0px 51px;}
+	 50%{margin:102px 0px 0px 51px;}
+	 75%{margin:102px 0px 0px 51px;}
+	100%{margin:102px 0px 0px 0px;}
+}
