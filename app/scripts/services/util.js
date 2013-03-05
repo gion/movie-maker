@@ -9,18 +9,28 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 			timelineLite : $window.TimelineLite,
 			timelineMax : $window.TimelineMax
 		},
+			
+		getExtentsion : function(f){
+			return f.replace(/^.*\.([^.]{2,10}$)/,'$1'); 
+		},
+		
+		preferredVideoType : 'webm',
 
-		_getSource : function(mediaObject, sources){
+		_getSource : function(mediaObject, sources, setPreferredType){
 			if(mediaObject.canPlayType)
 				{
 					angular.forEach(sources, function(el, i){
 						el.canPlay = el.type ? mediaObject.canPlayType(el.type) : "";
+						el.extension = util.getExtentsion(el.src);
 					});
 
 					sources = sources.sort(function(el1, el2){
-						var b = el1.canPlay,
-							a = el2.canPlay;
+						var b = el2.canPlay,
+							a = el1.canPlay;
 
+						if(el1.extenstion == 'mp3') return 1;
+						if(el2.extenstion == 'mp3') return -1;
+							
 						if(a == 'yes')
 							return 1;
 						if(b == 'yes')
@@ -36,7 +46,23 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 						return 0;
 					});
 				}
-			return sources[0];
+
+			if(setPreferredType)
+				angular.forEach(sources, function(el, i){
+					if(el.extension != 'ogg' && el.extension != 'ogv' && el.canPlay)
+						util.preferredVideoType = el.extension;
+				});
+
+			// if it's an audio, remove the mp3 from the list
+			if(/audio/i.test(mediaObject.constructor.toString()))
+				{
+					sources = $window.$.grep(sources, function(el){
+						return el.extension != 'mp3' && el.extension != 'wav';
+					});
+				}
+	//		console.log(sources);
+			window.sources = sources;
+			return sources[sources.length-1];
 		},
 
 		createVideoElement : function(videoObject){
@@ -44,7 +70,7 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 			if(!this.cache[videoObject.id])
 				{
 					var v = angular.element('<video/>'),
-						source = this._getSource(v.get(0),videoObject.source);
+						source = this._getSource(v.get(0),videoObject.source, true);
 
 					v
 						.attr('preload', 'auto')
@@ -61,32 +87,30 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 	//				console.log('return cached video', this.cache[videoObject.id]);
 				}
 
-			return this.cache[videoObject.id].clone().get(0);
+			return this.cache[videoObject.id].get(0);
 		},
 
 		createAudioElement : function(audioObject){
+
+			
 			this.cache = this.cache || {};
 
 			if(!this.cache[audioObject.id])
 				{
-					var a = new Audio(),
+					var $a = angular.element('<audio/>'),
+						a = $a.get(0),
 						source = this._getSource(a, audioObject.source);
-
+					a.autoplay = false;
 					a.src = source.src;
-					this.cache[audioObject.id] = $(a);
+					this.cache[audioObject.id] = a;
 			
-
-					/*for testing only*/
-					a.volume = 0.05;
-
-		//			console.log('create audio', a);	
 				}
-				else
-					{
-		//				console.log('return cached audio', this.cache[audioObject.id]);
-					}
+			else
+				{
+	//				console.log('return cached audio', this.cache[audioObject.id]);
+				}
 
-			return this.cache[audioObject.id].clone().get(0);
+			return this.cache[audioObject.id];
 		},
 
 		getVideoDetails : function(videoObject){
@@ -116,10 +140,12 @@ movieMakerApp.factory('util' ,['$window', 'config', function($window, config) {
 
 		isTheSameObj : function(a, b){
 			return !!a?JSON.stringify(a):null == !!b?JSON.stringify(b):null;
+		},
+
+		isIpad : function(){
+			return /iPad/i.test($window.navigator.userAgent);
 		}
 	};
-
-	$window.util = util;
 
 
 	return util;

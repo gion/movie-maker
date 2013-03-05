@@ -4,18 +4,21 @@ movieMakerApp.factory('$timeline' ,['$window', 'config', 'util', function($windo
 
 var $ = angular.element;
 
-	function Timeline(elements, outputSelector){
+	function Timeline(elements, outputSelector, onReadyCallback){
 		this.elements = elements || {};
 		this.tweens = [];
 		this.timeline = null;
 		this.output = $(outputSelector);
+		this.ready = util.isIpad() ? true : false;
+		this.onReadyCallback = onReadyCallback;
+
 
 		if(!!this.elements)
 			this.updateElements();
 	}
 	
 	Timeline.getType = function(el){
-		return el.type == 'image' ? 'video' : el.type;
+		return el.type == 'image' || el.type == 'title' ? 'video' : el.type;
 	};
 
 	Timeline.prototype = {
@@ -24,9 +27,23 @@ var $ = angular.element;
 				return Timeline.getType(el) == t;
 			});
 		},*/
-		updateElements : function(keepProgress){
+		onReady : function(){
+			this.setupTimeline();
+			this.ready = true;
+	//		console.log('TIMELINE READY');
+			if(angular.isFunction(this.onReadyCallback))
+				this.onReadyCallback();
+		},
+		updateElements : $window._.debounce(function(keepProgress){
+			if(util.isIpad())
+				{
+					$('#projector video').remove();
+				}
+
+			this.ready = util.isIpad() ? true : false;
 			if(this.timeline)
 				{
+					this.latestDuration = this.timeline.totalDuration();
 					var p = this.timeline.progress();
 					this.timeline.kill();
 					this.timeline.clear();
@@ -35,29 +52,59 @@ var $ = angular.element;
 			if(this.tweens.length)
 				this.tweens = [];
 
+			var t = 0;
+			angular.forEach(this.elements.visual, function(el){
+				t += el.duration;
+			})
+			this.elements.music[0].duration = t;
 
 			this
 				.setupTweens()
-				.setupTimeline()
-				.setupTimelineOutput();
+		//		.setupTimeline()
+		//		.setupTimelineOutput();
 
-			if(keepProgress && p)
-				this.timeline.progress(p);
 
+			if(this.timeline)
+				{
+					if(keepProgress && p)
+						this.timeline.progress(p);
+				}
 	//		console.log('new duration is : ' + this.getDuration());
 
 			return this;
+		}, 300),
+
+		checkIfItemsAreReady : function(){
+			if(util.isIpad())
+				{
+					this.onReady();
+					return;
+				}
+
+			var self = this,
+					waitingFor = $.grep(self.tweens, function(el, i){
+					return !el.isReady;
+				}).length;
+
+	//		console.log('checkIfItemsAreReady', self.tweens.length, waitingFor);
+
+			if(waitingFor == 0)
+				self.onReady();
+
 		},
 
 		setupTweens : function(){
-			var tweens = this.tweens = [],
+			var self = this,
+				tweens = this.tweens = [],
 				totalDuration;
-
+				
 			angular.forEach(this.elements, function(arr, type){
+/*				if(type == 'music')
+					return;*/
 		//		console.log('=============> ', type);
 				totalDuration = 0;
 				angular.forEach(arr, function(el, i){
-		//			console.log('===> ', el.name);
+			//		console.log('===> ', el.name);
 
 					el.originalDelay =  el.delay;
 					el._delay =  el.delay;
@@ -66,18 +113,60 @@ var $ = angular.element;
 						{
 							totalDuration = $window.Math.max(totalDuration, el.delay + el.duration);
 						}
+	/*				else if(type == 'music')
+						{
+							el._delay = el.delay = 0;
+							el.duration = totalDuration;
+						}*/
 					else
 						{
 							el._delay += totalDuration;
 							totalDuration += el.duration;
+							/*if(type == 'music'){
+								el.duration = totalDuration;	
+								console.error(el);
+							}*/
 						}
 
 				//	el._tween = el._tween || ItemFactory(el);
-					el._tween = ItemFactory(el);
+			/*		var tw = el._tween;
+					console.log(tw instanceof Item);
+					if(tw instanceof Item)
+						{
+							tw.ready = true;
+							el._tween = tw;
+							console.log(tw);
+						}
+					else*/
+						
 
-					tweens.push(el._tween);
 				});
 			});
+			angular.forEach(this.elements, function(arr, type){
+			//	if(type != 'music')
+				angular.forEach(arr, function(el, i){
+					el._tween =  ItemFactory(el, function(){
+						self.checkIfItemsAreReady();
+					});
+					tweens.push(el._tween);					
+				});
+			});
+
+
+/*			angular.forEach(this.elements.music, function(el, i){
+				el.duration = totalDuration || 60;
+				el.delay = 0;
+				el._tween = ItemFactory(el, onReadyCallback);
+				tweens.push(el._tween);
+			});*/
+		
+
+			self._totalDuration = totalDuration;
+
+
+			this.checkIfItemsAreReady();
+
+
 			return this;
 		},
 
@@ -86,6 +175,8 @@ var $ = angular.element;
 			this.timeline = /*this.timeline || */new util.tween.timelineMax({
 				progress : 100,
 				onUpdate : function(){
+					self.latestDuration = this.totalDuration();
+
 					self.onUpdate();
 				},
 
@@ -94,13 +185,50 @@ var $ = angular.element;
 		//		smoothChildTiming : true,
 			});
 
+			this.timeline.parent = this;
+
 			this.timeline.clear();
 
 			this.timeline.insertMultiple(
-				$.map(this.tweens, function(el, i){
+				$.map(
+					$.grep(this.tweens, function(el, i){
+						return true;
+						return el.data.type != 'music';
+					})
+					//this.tweens
+				, function(el, i){
+					if(el.tween)
+						el.tween._timeline = self.timeline;
 					return el.tween;
 				})
 			);
+
+
+
+			//console.warn("######", totalDuration);
+			/*if(this.elements.music && this.elements.music.length)
+				{
+					var musicEl = this.elements.music[0];
+					musicEl.duration = this.timeline.duration();
+					musicEl._tween = ItemFactory(musicEl);
+					musicEl._tween.isReady = true;
+					musicEl._tween.initOutputElement();
+					musicEl._tween.initTween();
+					musicEl._tween.tween._timeline =  this.timeline;
+
+					var existingTween = $.grep(this.tweens, function(el){
+						return el.data.type == 'music';
+					})[0];
+
+					if(existingTween)
+						{
+							this.tweens.splice(this.tweens.indexOf(existingTween), 1, musicEl._tween);
+						}
+					this.timeline.insert(musicEl._tween.tween);
+				}*/
+
+
+			this.setupTimelineOutput();
 
 			return this;
 		},
@@ -119,7 +247,7 @@ var $ = angular.element;
 					el.output.insertBefore(lastChild);
 			});
 
-			var totalDuration = this.getDuration();
+			var totalDuration = this.getDuration() || this.latestDuration;
 
 	//		console.log('timeline setup', totalDuration);
 
@@ -151,6 +279,7 @@ var $ = angular.element;
 
 			return this;
 		},
+
 
 		_getDuration : function(){
 			return this.timeline ? this.timeline.duration() : 0;
@@ -229,23 +358,25 @@ var $ = angular.element;
 
 
 	// Item base class
-	function Item(data){
+	function Item(data, onReady){
 		this.data = data;
 		this.tween = null;
 		this.output = null;
 		this.progress = 0;
+		this.onReady = onReady;
+		this.isReady = false;
 
 		if(!arguments.length)
 			return this;
 
-		this.initTween();
+		// this.initTween();
 	}
 
 	Item.prototype = {
 		constructor : Item,
 		initTween : function(){
 			var self = this;
-		//	console.log(this.data.duration);
+	//		console.log(this.data.duration);
 			this.tween = util.tween.tweenMax.to(this, this.data.duration,{
 				progress : 100,
 				delay : this.data._delay || 0,
@@ -271,6 +402,12 @@ var $ = angular.element;
 			this.tween.owner = this;
 		},
 		initOutputElement : function(){},
+		ready : function(){
+			this.initTween();
+			this.isReady = true;
+			if(angular.isFunction(this.onReady))
+				this.onReady();
+		},
 		onStart : function(){},
 		onUpdate : function(){},
 		onComplete : function(){},
@@ -293,10 +430,11 @@ var $ = angular.element;
 	}
 	ImageItem.prototype = new Item();
 
-	angular.extend(ImageItem.prototype, {
-		constructor : ImageItem,
+	angular.extend(ImageItem.prototype, {constructor : ImageItem},
+	!util.isIpad() ? {
 		initOutputElement : function(){
 			this.output = $('<img src="'+ this.data.source +'" alt="" class="item image-item" />');
+			this.ready();
 		},
 		onStart : function(){
 			this.output.addClass('active');
@@ -314,7 +452,7 @@ var $ = angular.element;
 			Item.prototype.activate.apply(this, arguments);
 			this.output.toggleClass('active', !!active);
 		}
-	});
+	} : {});
 
 
 	// VideoItem base class
@@ -327,10 +465,24 @@ var $ = angular.element;
 	}
 	VideoItem.prototype = new ImageItem();
 
-	angular.extend(VideoItem.prototype, {
-		constructor : VideoItem,
+	angular.extend(VideoItem.prototype, {constructor : VideoItem},
+	!util.isIpad() ? {
 		initOutputElement : function(){
+			var self = this,
+				F = function(){
+					self.vid.removeEventListener('canplaythrough', F);
+			//		console.info('video ready',self, self.ready, self.vid);
+					self.vid.isReady = true;
+					self.ready();
+				};
+
 			this.vid = util.createVideoElement(this.data);
+			if(this.vid.isReady)
+				F();
+			else
+				this.vid.addEventListener('canplaythrough', F, false);
+
+			
 
 			this.output = angular.element('<canvas class="item image-video" width="'+ config.screenWidth +'" height="'+config.screenHeight+'"/>');
 			this.ctx = this.output.get(0).getContext('2d');
@@ -340,6 +492,8 @@ var $ = angular.element;
 			this.onUpdate();
 		},
 		onUpdate : function(){
+			if(!this.tween.timeline || !this.tween.timeline.parent || !this.tween.timeline.parent.ready)
+				return;
 			//console.log(this.tween.paused(), this.vid.paused);
 			if(this.tween.timeline.paused())
 				{
@@ -358,7 +512,7 @@ var $ = angular.element;
 		onComplete : function(){
 			this.vid.pause();
 		}
-	});	
+	} : {});	
 
 	// VideoItem base class
 	function AudioItem () {
@@ -371,15 +525,59 @@ var $ = angular.element;
 	AudioItem.prototype = new Item();
 
 	angular.extend(AudioItem.prototype, {
-		constructor : AudioItem,
+			constructor : AudioItem
+		},
+
+		!util.isIpad() ? {
 		initOutputElement : function(){
+			var self = this,
+				F = function(){
+					self.audio.removeEventListener('canplaythrough', F);
+					self.audio.removeEventListener('canplay', F);
+					self.audio.isReady = true;
+		//			console.info('audio ready', self.audio);
+					self.audio.pause();
+
+					self.ready();
+				};
+
 			this.audio = util.createAudioElement(this.data);
+
+			if(this.audio.isReady)
+				F();
+			else
+				{
+					this.audio.addEventListener('canplaythrough', F, false);
+					this.audio.addEventListener('canplay', F, false);
+				}
+/*
+			this.audio.addEventListener('canplay', function(){
+				console.info('audio ready2', self.audio);
+				self.ready();
+			}, false);*/
 		},
 		onStart : function(){
 			this.audio.currentTime = 0;
+			this.audio.pause();
+
 			this.onUpdate();
 		},
 		onUpdate : function(){
+/*			if(this.tween && this.tween._timeline && !this.tween.timeline)
+				this.tween.timeline = this.tween._timeline;
+
+			if(!this.tween.timeline
+				// || !this.tween.timeline.parent || !this.tween.timeline.parent.ready
+			)
+				{
+					window.CCC = $.extend({},this);
+					console.error(window.CCC);
+					return;
+				}
+*/
+			if(!this.tween.timeline || !this.tween.timeline.parent || !this.tween.timeline.parent.ready)
+				return;
+
 			if(this.tween.timeline.paused())
 				{
 					this.audio.pause();
@@ -397,17 +595,17 @@ var $ = angular.element;
 		onComplete : function(){
 			this.audio.pause();
 		}
-	});	
+	} : {});	
 
 	// Visual Item factory
-	function ItemFactory(data){
+	function ItemFactory(data, onReady){
 	//	console.log('visual item', data);
 		return data.type == 'video' 
-					? new VideoItem(data)
-					: data.type == 'image'
-						? new ImageItem(data)
+					? new VideoItem(data, onReady)
+					: data.type == 'image' || data.type == 'title'
+						? new ImageItem(data, onReady)
 						: data.type == 'audio' || data.type == 'music'
-							? new AudioItem(data)
+							? new AudioItem(data, onReady)
 							: null; 
 	}
 	

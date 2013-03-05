@@ -74,7 +74,12 @@ movieMakerApp.directive('uiDraggable', [
           opts.start = function(e, ui) {
             element.data('ui-draggable-item', ngModel.$modelValue);
             if (typeof _start === "function") {
-              _start(e, ui);
+              _start({
+                item : ngModel.$modelValue,
+                event : e, 
+                ui : ui,
+                scope : this 
+              });
             }
             return scope.$apply();
           };

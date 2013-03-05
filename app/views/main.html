@@ -1,4 +1,4 @@
-	<div id="wrapper" ng-style='{"width":timelineWidth}'>
+	<div id="wrapper" ng-style='{"width":timelineWidth}' ng-class='{"device-tablet":isTablet}'>
 	    <div class="tabbable">
 			<ul class="nav nav-tabs">
 				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes" >
@@ -14,11 +14,11 @@
 							</li>
 						</ul>
 					</div>
-					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone' }" class="items {{pane.title.toLowerCase()}}-item">
+					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone', start : onDragStart }" class="items {{pane.title.toLowerCase()}}-item">
 						<img ng-src="{{item.thumb}}" class="img-polaroid"/>
 					</div>
 				</div>
-				<div class="pagination pagination-small pagination-right" ng-show="visiblePagination">
+				<div class="pagination pagination-small pagination-left" ng-show="visiblePagination">
 					<ul>
 						<li ng-class="{disabled: currentPage == 0}">
 	                        <a href ng-click="prevPage()">«</a>
@@ -33,14 +33,14 @@
 				</div>
 			</div>
 		</div>
-		<div id="projector" ng-click="togglePlayState()">
+		<div id="projector" ng-click="projectorClickHandler($event)" mm-tap="projectorClickHandler($event)" ng-class='{"timeline-loading" : !tracks.ready}'>
 			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
 		</div>
 		<div class="clear"></div>
 
 		<div id="timelines" ui-event="{mousemove:'updateTooltip($event)'}">
 			
-			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}">
+			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}" ng-hide="!tracks.ready">
 				<div class="tooltip-arrow"></div>
 				<div class="tooltip-inner">{{tooltip.title}}</div>
 			</div>
@@ -85,11 +85,11 @@
 		</div>
 
 		<div class="download-btn-wapper">
-			<div class="button">
+			<div class="button"  ng-click="downloadMovie($event)">
 				<div class="outer">
 					<div class="height">
-						<div class="inner" ng-click="downloadMovie()">
-							download movie
+						<div class="inner">
+							save movie
 						</div>
 					</div>
 				</div>
@@ -106,12 +106,14 @@
 				<div class="cube cube6"></div>
 				<div class="cube cube7"></div>
 				<div class="cube cube8"></div>
-			<p>
-				This might takea couple of minutes. 
-				<br/>
-				 Please wait or click <a href="#" ng-click="cancelDownload"> here </a>to cancel.
-			</p> 
 			</div>
+			<p class="loading-message">
+				Your video is currently being processed.
+				<br/>
+				This might take a couple of minutes. 
+				<br/>
+				 Please wait or click <a href="#" ng-click="cancelDownload($event)"> here </a>to cancel.
+			</p> 
 		</div>
 	</div>
 </div>

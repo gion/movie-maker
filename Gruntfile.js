@@ -48,8 +48,9 @@ module.exports = function (grunt) {
         options: {
           port: 3501,
           // Change this to '0.0.0.0' to access the server from outside.
-          hostname: 'localhost',
-          middleware: function (connect) {
+         // hostname: 'localhost',
+         hostname : '192.168.1.148', 
+	 middleware: function (connect) {
             return [
               lrSnippet,
               mountFolder(connect, '.tmp'),

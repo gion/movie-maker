@@ -18,7 +18,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1.mp4",
+						"src" : "assets/video/mp4/mov1.mp4",
 						"type" : ""
 					}
 				],
@@ -41,7 +41,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_1.mp4",
+						"src" : "assets/video/mp4/mov1_1.mp4",
 						"type" : ""
 					}
 				],
@@ -64,7 +64,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_2.mp4",
+						"src" : "assets/video/mp4/mov1_2.mp4",
 						"type" : ""
 					}
 				],
@@ -87,7 +87,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_3.mp4",
+						"src" : "assets/video/mp4/mov1_3.mp4",
 						"type" : ""
 					}
 				],
@@ -110,7 +110,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_4.mp4",
+						"src" : "assets/video/mp4/mov1_4.mp4",
 						"type" : ""
 					}
 				],
@@ -133,7 +133,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_5.mp4",
+						"src" : "assets/video/mp4/mov1_5.mp4",
 						"type" : ""
 					}
 				],
@@ -156,7 +156,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_6.mp4",
+						"src" : "assets/video/mp4/mov1_6.mp4",
 						"type" : ""
 					}
 				],
@@ -179,7 +179,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_7.mp4",
+						"src" : "assets/video/mp4/mov1_7.mp4",
 						"type" : ""
 					}
 				],
@@ -202,7 +202,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov1_8.mp4",
+						"src" : "assets/video/mp4/mov1_8.mp4",
 						"type" : ""
 					}
 				],
@@ -225,7 +225,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov2.mp4",
+						"src" : "assets/video/mp4/mov2.mp4",
 						"type" : ""
 					}
 				],
@@ -248,7 +248,7 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov3.mp4",
+						"src" : "assets/video/mp4/mov3.mp4",
 						"type" : ""
 					}
 				],
@@ -271,135 +271,1880 @@
 						"type" : "video/ogg"
 					},
 					{
-						"src" : "assets//mov4.mp4",
+						"src" : "assets/video/mp4/mov4.mp4",
 						"type" : ""
 					}
 				],
 				"fallback" : "assets/video/flv/mov4.flv",
 				"delay" : 0,
 				"duration" : 54.98826599121094
-			},		
-			{
-				"id" : "v3",
-				"name" : "what",
-				"type" : "image",
-				"thumb" : "http://thecreaturehub.com/memberAvatars/avatar_19724.jpeg",
-				"source" : "http://filmcrithulk.files.wordpress.com/2011/07/i-said-what1.jpg",
-				"delay" : 0,
-				"duration" : 2
 			},
-			{
-				"id" : "v4",
-				"name" : "no he didn't",
-				"type" : "image",
-				"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
-				"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
-				"delay" : 0,
-				"duration" : 1
-			},
-			{
-				"id" : "v4",
-				"name" : "no he didn't",
-				"type" : "image",
-				"thumb" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
-				"source" : "http://cdn.memegenerator.net/instances/400x/26613780.jpg",
-				"delay" : 0,
-				"duration" : 1
-			}
+		    {
+		        "id": "image20",
+		        "name": "image20",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image20.jpg",
+		        "source": "assets/images/image20.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "goofy_01",
+		        "name": "goofy_01",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/goofy_01.jpg",
+		        "source": "assets/images/goofy_01.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image02",
+		        "name": "image02",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image02.jpg",
+		        "source": "assets/images/image02.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image17",
+		        "name": "image17",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image17.jpg",
+		        "source": "assets/images/image17.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "goofy_02",
+		        "name": "goofy_02",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/goofy_02.jpg",
+		        "source": "assets/images/goofy_02.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "goofy_04",
+		        "name": "goofy_04",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/goofy_04.jpg",
+		        "source": "assets/images/goofy_04.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "pluto_02",
+		        "name": "pluto_02",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/pluto_02.jpg",
+		        "source": "assets/images/pluto_02.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image22",
+		        "name": "image22",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image22.jpg",
+		        "source": "assets/images/image22.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "pluto_04",
+		        "name": "pluto_04",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/pluto_04.jpg",
+		        "source": "assets/images/pluto_04.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "mickey_04",
+		        "name": "mickey_04",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/mickey_04.jpg",
+		        "source": "assets/images/mickey_04.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image19",
+		        "name": "image19",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image19.jpg",
+		        "source": "assets/images/image19.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "donald_02",
+		        "name": "donald_02",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/donald_02.jpg",
+		        "source": "assets/images/donald_02.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "mickey_02",
+		        "name": "mickey_02",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/mickey_02.jpg",
+		        "source": "assets/images/mickey_02.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image07",
+		        "name": "image07",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image07.jpg",
+		        "source": "assets/images/image07.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image05",
+		        "name": "image05",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image05.jpg",
+		        "source": "assets/images/image05.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "goofy_03",
+		        "name": "goofy_03",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/goofy_03.jpg",
+		        "source": "assets/images/goofy_03.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image26",
+		        "name": "image26",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image26.jpg",
+		        "source": "assets/images/image26.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "pluto_03",
+		        "name": "pluto_03",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/pluto_03.jpg",
+		        "source": "assets/images/pluto_03.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image12",
+		        "name": "image12",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image12.jpg",
+		        "source": "assets/images/image12.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "mickey_03",
+		        "name": "mickey_03",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/mickey_03.jpg",
+		        "source": "assets/images/mickey_03.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image25",
+		        "name": "image25",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image25.jpg",
+		        "source": "assets/images/image25.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "donald_04",
+		        "name": "donald_04",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/donald_04.jpg",
+		        "source": "assets/images/donald_04.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image24",
+		        "name": "image24",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image24.jpg",
+		        "source": "assets/images/image24.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "mickey_01",
+		        "name": "mickey_01",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/mickey_01.jpg",
+		        "source": "assets/images/mickey_01.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image23",
+		        "name": "image23",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image23.jpg",
+		        "source": "assets/images/image23.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image18",
+		        "name": "image18",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image18.jpg",
+		        "source": "assets/images/image18.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image11",
+		        "name": "image11",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image11.jpg",
+		        "source": "assets/images/image11.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "donald_01",
+		        "name": "donald_01",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/donald_01.jpg",
+		        "source": "assets/images/donald_01.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image10",
+		        "name": "image10",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image10.jpg",
+		        "source": "assets/images/image10.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image21",
+		        "name": "image21",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image21.jpg",
+		        "source": "assets/images/image21.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image16",
+		        "name": "image16",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image16.jpg",
+		        "source": "assets/images/image16.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "pluto_01",
+		        "name": "pluto_01",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/pluto_01.jpg",
+		        "source": "assets/images/pluto_01.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image09",
+		        "name": "image09",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image09.jpg",
+		        "source": "assets/images/image09.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image08",
+		        "name": "image08",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image08.jpg",
+		        "source": "assets/images/image08.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image15",
+		        "name": "image15",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image15.jpg",
+		        "source": "assets/images/image15.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image13",
+		        "name": "image13",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image13.jpg",
+		        "source": "assets/images/image13.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image04",
+		        "name": "image04",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image04.jpg",
+		        "source": "assets/images/image04.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "donald_03",
+		        "name": "donald_03",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/donald_03.jpg",
+		        "source": "assets/images/donald_03.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image14",
+		        "name": "image14",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image14.jpg",
+		        "source": "assets/images/image14.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image06",
+		        "name": "image06",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image06.jpg",
+		        "source": "assets/images/image06.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "image01",
+		        "name": "image01",
+		        "type": "image",
+		        "thumb": "assets/images/thumbnails/image01.jpg",
+		        "source": "assets/images/image01.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "huh5",
+		        "name": "huh5",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/huh5.jpg",
+		        "source": "assets/titles/huh5.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "huh5",
+		        "name": "huh5",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/huh5.jpg",
+		        "source": "assets/titles/huh5.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "bam",
+		        "name": "bam",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/bam.jpg",
+		        "source": "assets/titles/bam.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "wow",
+		        "name": "wow",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/wow.jpg",
+		        "source": "assets/titles/wow.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "splat",
+		        "name": "splat",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/splat.jpg",
+		        "source": "assets/titles/splat.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "boo6",
+		        "name": "boo6",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/boo6.jpg",
+		        "source": "assets/titles/boo6.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "crash2",
+		        "name": "crash2",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/crash2.jpg",
+		        "source": "assets/titles/crash2.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "boom3",
+		        "name": "boom3",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/boom3.jpg",
+		        "source": "assets/titles/boom3.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "klonkk9",
+		        "name": "klonkk9",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/klonkk9.jpg",
+		        "source": "assets/titles/klonkk9.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "pow",
+		        "name": "pow",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/pow.jpg",
+		        "source": "assets/titles/pow.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    },
+		    {
+		        "id": "boing",
+		        "name": "boing",
+		        "type": "title",
+		        "thumb": "assets/titles/thumbnails/boing.jpg",
+		        "source": "assets/titles/boing.jpg",
+		        "delay": 0,
+		        "duration": 2
+		    }
 		],
 		"active" : true
 	},
 	{ 
 		"title" : "Sound", 
 		"content" : [
-			{
-				"id" : "a1",
-				"name" : "horse",
-				"type" : "audio",
-				"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
-				"source" : [
-					{
-						"src" : "http://www.w3schools.com/html/horse.mp3",
-						"type" : "audio/mpeg"
-					},
-					{
-						"src" : "http://www.w3schools.com/html/horse.ogg",
-						"type" : "audio/ogg"
-					}				
-				],
-				"duration" : 1.5151020288467407,
-				"delay" : 2
-			},
-			{
-				"id" : "a2",
-				"name" : "piggy",
-				"type" : "audio",
-				"thumb" : "http://terriblybad.com/wp-content/uploads/2010/03/pigs-fly.png",
-				"source" : [
-					{
-						"src" : "http://www.junglewalk.com/Asounds/piglet3.wav",
-						"type" : "audio/wav"
-					}
-				],
-				"delay" : 3,
-				"duration" : 2.2083580493927
-			},
-			{
-				"id" : "a1",
-				"name" : "horse",
-				"type" : "audio",
-				"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
-				"source" : [
-					{
-						"src" : "http://www.w3schools.com/html/horse.mp3",
-						"type" : "audio/mpeg"
-					},
-					{
-						"src" : "http://www.w3schools.com/html/horse.ogg",
-						"type" : "audio/ogg"
-					}
-				],
-				"delay" : 6,
-				"duration" : 1.5151020288467407
-			}
+		    {
+		        "id": "crash_01",
+		        "name": "crash_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/crash_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/crash_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/crash_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/crash_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.462875
+		    },
+		    {
+		        "id": "boing_06",
+		        "name": "boing_06",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/boing_06.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/boing_06.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/boing_06.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/boing_06.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6791875
+		    },
+		    {
+		        "id": "whistle_05",
+		        "name": "whistle_05",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_05.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_05.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_05.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_05.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.5224375
+		    },
+		    {
+		        "id": "chomp_01",
+		        "name": "chomp_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/chomp_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/chomp_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/chomp_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/chomp_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.3135
+		    },
+		    {
+		        "id": "blink_02",
+		        "name": "blink_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/blink_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/blink_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/blink_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/blink_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6791875
+		    },
+		    {
+		        "id": "twang_05",
+		        "name": "twang_05",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/twang_05.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/twang_05.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/twang_05.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/twang_05.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.9069375
+		    },
+		    {
+		        "id": "run_04",
+		        "name": "run_04",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/run_04.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/run_04.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/run_04.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/run_04.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6791875
+		    },
+		    {
+		        "id": "hit_03",
+		        "name": "hit_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/hit_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/hit_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/hit_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/hit_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.5746875
+		    },
+		    {
+		        "id": "crash_03",
+		        "name": "crash_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/crash_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/crash_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/crash_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/crash_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.8881875
+		    },
+		    {
+		        "id": "boing_01",
+		        "name": "boing_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/boing_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/boing_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/boing_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/boing_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.7575625
+		    },
+		    {
+		        "id": "twang_03",
+		        "name": "twang_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/twang_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/twang_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/twang_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/twang_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.8285625
+		    },
+		    {
+		        "id": "awooga_01",
+		        "name": "awooga_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/awooga_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/awooga_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/awooga_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/awooga_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6791875
+		    },
+		    {
+		        "id": "twang_04",
+		        "name": "twang_04",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/twang_04.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/twang_04.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/twang_04.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/twang_04.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.9591875
+		    },
+		    {
+		        "id": "screech_01",
+		        "name": "screech_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/screech_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/screech_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/screech_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/screech_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.253875
+		    },
+		    {
+		        "id": "crash_04",
+		        "name": "crash_04",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/crash_04.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/crash_04.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/crash_04.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/crash_04.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.201625
+		    },
+		    {
+		        "id": "whistle_03",
+		        "name": "whistle_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.4963125
+		    },
+		    {
+		        "id": "blink_01",
+		        "name": "blink_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/blink_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/blink_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/blink_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/blink_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.462875
+		    },
+		    {
+		        "id": "pop_01",
+		        "name": "pop_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/pop_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/pop_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/pop_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/pop_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.235125
+		    },
+		    {
+		        "id": "crash_02",
+		        "name": "crash_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/crash_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/crash_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/crash_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/crash_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.462875
+		    },
+		    {
+		        "id": "boing_03",
+		        "name": "boing_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/boing_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/boing_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/boing_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/boing_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.1159375
+		    },
+		    {
+		        "id": "run_02",
+		        "name": "run_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/run_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/run_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/run_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/run_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.40325
+		    },
+		    {
+		        "id": "piano_02",
+		        "name": "piano_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/piano_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/piano_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/piano_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/piano_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.3135
+		    },
+		    {
+		        "id": "squeak_01",
+		        "name": "squeak_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/squeak_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/squeak_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/squeak_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/squeak_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.33225
+		    },
+		    {
+		        "id": "bell_01",
+		        "name": "bell_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/bell_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/bell_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/bell_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/bell_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6269375
+		    },
+		    {
+		        "id": "doubleTake_02",
+		        "name": "doubleTake_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/doubletake_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/doubleTake_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/doubleTake_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/doubleTake_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.1681875
+		    },
+		    {
+		        "id": "run_01",
+		        "name": "run_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/run_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/run_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/run_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/run_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.01875
+		    },
+		    {
+		        "id": "crash_06",
+		        "name": "crash_06",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/crash_06.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/crash_06.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/crash_06.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/crash_06.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.489
+		    },
+		    {
+		        "id": "hit_01",
+		        "name": "hit_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/hit_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/hit_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/hit_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/hit_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.3135
+		    },
+		    {
+		        "id": "whistle_02",
+		        "name": "whistle_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.8735
+		    },
+		    {
+		        "id": "whistle_01",
+		        "name": "whistle_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.9404375
+		    },
+		    {
+		        "id": "twang_01",
+		        "name": "twang_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/twang_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/twang_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/twang_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/twang_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.22775
+		    },
+		    {
+		        "id": "hit_06",
+		        "name": "hit_06",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/hit_06.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/hit_06.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/hit_06.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/hit_06.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6791875
+		    },
+		    {
+		        "id": "splat_01",
+		        "name": "splat_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/splat_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/splat_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/splat_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/splat_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.15675
+		    },
+		    {
+		        "id": "phone_01",
+		        "name": "phone_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/phone_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/phone_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/phone_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/phone_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 3.761625
+		    },
+		    {
+		        "id": "run_03",
+		        "name": "run_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/run_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/run_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/run_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/run_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.7240625
+		    },
+		    {
+		        "id": "piano_01",
+		        "name": "piano_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/piano_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/piano_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/piano_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/piano_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.6979375
+		    },
+		    {
+		        "id": "boing_05",
+		        "name": "boing_05",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/boing_05.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/boing_05.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/boing_05.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/boing_05.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.1681875
+		    },
+		    {
+		        "id": "pratFall_01",
+		        "name": "pratFall_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/pratfall_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/pratFall_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/pratFall_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/pratFall_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.8881875
+		    },
+		    {
+		        "id": "crash_05",
+		        "name": "crash_05",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/crash_05.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/crash_05.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/crash_05.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/crash_05.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.0114375
+		    },
+		    {
+		        "id": "honk_02",
+		        "name": "honk_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/honk_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/honk_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/honk_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/honk_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.3918125
+		    },
+		    {
+		        "id": "boing_04",
+		        "name": "boing_04",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/boing_04.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/boing_04.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/boing_04.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/boing_04.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.992625
+		    },
+		    {
+		        "id": "whistle_04",
+		        "name": "whistle_04",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_04.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_04.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_04.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_04.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 2.377125
+		    },
+		    {
+		        "id": "twang_02",
+		        "name": "twang_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/twang_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/twang_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/twang_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/twang_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.9143125
+		    },
+		    {
+		        "id": "eye_rub_01",
+		        "name": "eye_rub_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/eye_rub_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/eye_rub_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/eye_rub_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/eye_rub_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.489
+		    },
+		    {
+		        "id": "boing_02",
+		        "name": "boing_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/boing_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/boing_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/boing_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/boing_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.071
+		    },
+		    {
+		        "id": "pop_02",
+		        "name": "pop_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/pop_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/pop_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/pop_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/pop_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.5485625
+		    },
+		    {
+		        "id": "hit_02",
+		        "name": "hit_02",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/hit_02.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/hit_02.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/hit_02.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/hit_02.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.3918125
+		    },
+		    {
+		        "id": "whistle_07",
+		        "name": "whistle_07",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_07.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_07.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_07.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_07.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.5224375
+		    },
+		    {
+		        "id": "run_05",
+		        "name": "run_05",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/run_05.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/run_05.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/run_05.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/run_05.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.01875
+		    },
+		    {
+		        "id": "hit_04",
+		        "name": "hit_04",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/hit_04.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/hit_04.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/hit_04.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/hit_04.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.5224375
+		    },
+		    {
+		        "id": "hit_05",
+		        "name": "hit_05",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/hit_05.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/hit_05.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/hit_05.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/hit_05.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.992625
+		    },
+		    {
+		        "id": "piano_03",
+		        "name": "piano_03",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/piano_03.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/piano_03.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/piano_03.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/piano_03.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.4963125
+		    },
+		    {
+		        "id": "honk_01",
+		        "name": "honk_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/honk_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/honk_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/honk_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/honk_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 0.6791875
+		    },
+		    {
+		        "id": "whistle_06",
+		        "name": "whistle_06",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/whistle_06.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/whistle_06.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/whistle_06.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/whistle_06.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.071
+		    },
+		    {
+		        "id": "doubleTake_01",
+		        "name": "doubleTake_01",
+		        "type": "audio",
+		        "thumb": "assets/audio/thumbnails/doubletake_01.jpg",
+		        "source": [
+		            {
+		                "src": "assets/audio/mp3/doubleTake_01.mp3",
+		                "type": "am modificat asta ! - audio/mpeg"
+		            },
+		            {
+		                "src": "assets/audio/wav/doubleTake_01.wav",
+		                "type": "audio/wav"
+		            },
+		            {
+		                "src": "assets/audio/ogg/doubleTake_01.ogg",
+		                "type": "audio/ogg"
+		            }
+		        ],
+		        "delay": 0,
+		        "duration": 1.9853125
+		    }
 		],
 		"active" : false
 	},
 	{ 
 		"title" : "Music", 
 		"content" : [
-			{
-				"id" : "m1",
-				"name" : "background",
-				"type" : "music",
-				"thumb" : "http://katspaugh.github.com/wavesurfer.js/examples/ex.fm/images/waveforms/2012-12-11-0.png",
-				"source" : [
-					{
-						"src" : "data/POL-mad-plans-short.wav",
-						"type" : "audio/wav"
-					}
-				],
-				"delay" : 0,
-				"duration" : 21.187357425689697
-			},
-			{
-				"id" : "m2",
-				"name" : "horse",
-				"type" : "music",
-				"thumb" : "http://th01.deviantart.net/fs13/150/i/2009/053/6/a/Doodle_Horse_by_rwitte12.jpg",
-				"source" : [
-					{
-						"src" : "http://www.w3schools.com/html/horse.mp3",
-						"type" : "audio/mpeg"
-					},
-					{
-						"src" : "http://www.w3schools.com/html/horse.ogg",
-						"type" : "audio/ogg"
-					}
-				],
-				"delay" : 6,
-				"duration" : 1.5151020288467407
-			}
+			    {
+			        "id": "GhoulsJustWannaHaveFun_MX025_96",
+			        "name": "GhoulsJustWannaHaveFun_MX025_96",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/Ghouls.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/GhoulsJustWannaHaveFun_MX025_96.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/GhoulsJustWannaHaveFun_MX025_96.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/GhoulsJustWannaHaveFun_MX025_96.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 61.0220625
+			    },
+			    {
+			        "id": "Thunder_Mountain_AM104_20",
+			        "name": "Thunder_Mountain_AM104_20",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/Thunder.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/Thunder_Mountain_AM104_20.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/Thunder_Mountain_AM104_20.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/Thunder_Mountain_AM104_20.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 63.0335
+			    },
+			    {
+			        "id": "Komedy_Kapers_MX009_69",
+			        "name": "Komedy_Kapers_MX009_69",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/Komedy.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/Komedy_Kapers_MX009_69.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/Komedy_Kapers_MX009_69.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/Komedy_Kapers_MX009_69.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 62.6155
+			    },
+			    {
+			        "id": "Yak_It_Up_MX025_22",
+			        "name": "Yak_It_Up_MX025_22",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/YakItUp.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/Yak_It_Up_MX025_22.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/Yak_It_Up_MX025_22.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/Yak_It_Up_MX025_22.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 61.1265
+			    },
+			    {
+			        "id": "Zap_Dance_AM138_07",
+			        "name": "Zap_Dance_AM138_07",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/ZapDance.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/Zap_Dance_AM138_07.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/Zap_Dance_AM138_07.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/Zap_Dance_AM138_07.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 61.59675
+			    },
+			    {
+			        "id": "Purple_Taxi_MX031_39",
+			        "name": "Purple_Taxi_MX031_39",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/Purple.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/Purple_Taxi_MX031_39.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/Purple_Taxi_MX031_39.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/Purple_Taxi_MX031_39.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 63.3991875
+			    },
+			    {
+			        "id": "High_Life_BB010_04",
+			        "name": "High_Life_BB010_04",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/HighLife.jpg",
+			        "source": [
+			            {
+			                "src": "assets/music/mp3/High_Life_BB010_04.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            },
+			            {
+			                "src": "assets/music/wav/High_Life_BB010_04.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/ogg/High_Life_BB010_04.ogg",
+			                "type": "audio/ogg"
+			            }
+			        ],
+			        "delay": 0,
+			        "duration": 62.0408125
+			    },
+			    {
+			        "id": "Rock_Power3_INX022_07",
+			        "name": "Rock_Power3_INX022_07",
+			        "type": "music",
+			        "thumb": "assets/music/thumbnails/RockPower.jpg",
+			        "source": [
+			        	{
+			                "src": "assets/music/ogg/Rock_Power3_INX022_07.ogg",
+			                "type": "audio/ogg"
+			            },
+			            {
+			                "src": "assets/music/wav/Rock_Power3_INX022_07.wav",
+			                "type": "audio/wav"
+			            },
+			            {
+			                "src": "assets/music/mp3/Rock_Power3_INX022_07.mp3",
+			                "type": "am modificat asta ! - audio/mpeg"
+			            }			          
+			        ],
+			        "delay": 0,
+			        "duration": 60.0555
+			    }
 		],
 		"active" : false
 	}

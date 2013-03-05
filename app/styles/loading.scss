@@ -1,6 +1,6 @@
 #loading{
 
-	position: absolute;
+	position: fixed;
 	z-index: 9999;
 	top: 0;
 	left : 0;
@@ -38,57 +38,61 @@
 	div.cube7{margin:102px 0px 0px 0px; @include animation(cube7, .5s, linear, 0, infinite)}
 	div.cube8{margin:102px 0px 0px 51px; @include animation(cube8, .5s, linear, 0, infinite)}
 
-	p{
+	.loading-message{
 		position: absolute;
-		bottom: -100px;
-		width: 100%;
+		left : 50%;
+		top : 50%;
+		margin-top : 100px;
+		margin-left : -200px;
+		width: 400px;
 		color: #fff;
+		text-align: center;
 	}
 }
 
-@-webkit-keyframes cube1{
+@include keyframe(cube1){
 	  0%{margin:0px 0px 0px 0px;}
 	 25%{margin:0px 0px 0px 0px;}
 	 50%{margin:0px 0px 0px 51px;}
 	 75%{margin:0px 0px 0px 51px;}
 	100%{margin:0px 0px 0px 51px;}
 }
-@-webkit-keyframes cube2{
+@include keyframe(cube2){
 	  0%{margin:0px 0px 0px 51px;}
 	 25%{margin:0px 0px 0px 51px;}
 	 50%{margin:0px 0px 0px 102px;}
 	 75%{margin:0px 0px 0px 102px;}
 	100%{margin:0px 0px 0px 102px;}
 }
-@-webkit-keyframes cube3{
+@include keyframe(cube3){
 	  0%{margin:0px 0px 0px 102px;}
 	 25%{margin:51px 0px 0px 102px;}
 	 50%{margin:51px 0px 0px 102px;}
 	 75%{margin:51px 0px 0px 102px;}
 	100%{margin:51px 0px 0px 102px;}
 }
-@-webkit-keyframes cube4{
+@include keyframe(cube4){
 	  0%{margin:51px 0px 0px 0px;}
 	 25%{margin:51px 0px 0px 0px;}
 	 50%{margin:51px 0px 0px 0px;}
 	 75%{margin:0px 0px 0px 0px;}
 	100%{margin:0px 0px 0px 0px;}
 }
-@-webkit-keyframes cube6{
+@include keyframe(cube6){
 	  0%{margin:51px 0px 0px 102px;}
 	 25%{margin:102px 0px 0px 102px;}
 	 50%{margin:102px 0px 0px 102px;}
 	 75%{margin:102px 0px 0px 102px;}
 	100%{margin:102px 0px 0px 51px;}
 }
-@-webkit-keyframes cube7{
+@include keyframe(cube7){
 	  0%{margin:102px 0px 0px 0px;}
 	 25%{margin:102px 0px 0px 0px;}
 	 50%{margin:102px 0px 0px 0px;}
 	 75%{margin:51px 0px 0px 0px;}
 	100%{margin:51px 0px 0px 0px;}
 }
-@-webkit-keyframes cube8{
+@include keyframe(cube8){
 	  0%{margin:102px 0px 0px 51px;}
 	 25%{margin:102px 0px 0px 51px;}
 	 50%{margin:102px 0px 0px 51px;}

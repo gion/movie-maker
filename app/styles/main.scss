@@ -22,6 +22,10 @@ $itemBorderRadius : 10px;
 	margin-top : 50px;
 	width : $timelineWidth;
 
+	&.device-tablet{
+		margin-top : 0;
+	}
+
 	.clear{
 		clear: both;
 	}
@@ -29,7 +33,7 @@ $itemBorderRadius : 10px;
 	.tabbable{
 		width: 350px;
 		height: 400px;
-		width : 50%;
+		width : 49%;
 		float: left;
 
 		.tab-content{
@@ -86,7 +90,25 @@ $itemBorderRadius : 10px;
 				li{
 					position : absolute;
 				}
+
+				&:after{
+					content:"drop sound items here";
+				}
 			}
+			&#music-timeline{
+				&:after{
+					content:"drop music items here";
+				}
+			}
+			&:after{
+				content:"drop visual items here";
+				font-size: 30px;
+				line-height: 60px;
+				padding-left : 20px;
+				color : #fff;
+				text-align: center;
+				width : $timelineWidth;
+			};
 
 			li{
 
@@ -247,20 +269,28 @@ $itemBorderRadius : 10px;
 		text-align : center;
 		width : 50%;
 		float: left;
+		border : 1px solid #ddd;
+		margin-top : 37px;
+
+		&.timeline-loading{
+			#screen{
+				background-image: url(../images/ignore/loading.gif);
+			}
+		}
 
 		#screen{
 			overflow : hidden;
 			position : relative;
 			cursor : pointer;
 			background : url(../images/ignore/play.png) 50% 50% no-repeat;
-			background-size : 50%;
+			background-size : 30%;
 			width : 600px;
 			height : 400px;
 			margin : 0 auto;
 			@include transition(all 200ms ease-in-out);
 
 			&:hover{
-				background-size : 75%;
+				background-size : 50%;
 			};
 
 
@@ -345,8 +375,8 @@ $itemBorderRadius : 10px;
 	.button .outer .height .inner {
 	/* 	line-height: 2.8em;
 		font-size: 30px; */
-		line-height: 1.25em;
-		font-size: 30px;
+		line-height: 2em;
+		font-size: 35px;
 		letter-spacing: .05em;
 		position: relative;
 		height: 100%;
@@ -390,7 +420,11 @@ $itemBorderRadius : 10px;
 	}
 }
 
-
+.device-tablet{
+	.download-btn-wapper{
+		display: none;
+	}
+}
 
 
 .loading{
