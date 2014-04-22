@@ -15,7 +15,7 @@ module.exports = function (grunt) {
   };
 
   try {
-    yeomanConfig.app = require('./component.json').appPath || yeomanConfig.app;
+    yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
   } catch (e) {}
 
   grunt.initConfig({
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
           port: 3501,
           // Change this to '0.0.0.0' to access the server from outside.
          // hostname: 'localhost',
-         hostname : '192.168.1.148', 
+         hostname : '0.0.0.0', 
 	 middleware: function (connect) {
             return [
               lrSnippet,
@@ -117,7 +117,7 @@ module.exports = function (grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/components',
+        importPath: '<%= yeoman.app %>/bower_components',
         relativeAssets: true
       },
       dist: {},
@@ -225,7 +225,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
-            'components/**/*',
+            'bower_components/**/*',
             'scripts/vendor/*',
             'views/*',
             'data/*',
