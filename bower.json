@@ -1,19 +1,30 @@
 {
   "name": "movie-maker",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "dependencies": {
-    "angular": "1.2.15",
-    "json3": "~3.2.6",
-    "es5-shim": "~2.1.0",
+    "angular": "~1.2.16",
+    "json3": "~3.2.4",
+    "es5-shim": "~2.0.5",
     "jquery": "~1.11.0",
     "bootstrap-sass-official": "~3.1.0",
     "angular-resource": "1.2.15",
     "angular-cookies": "1.2.15",
     "angular-sanitize": "1.2.15",
-    "angular-route": "1.2.15"
+    "angular-route": "1.2.15",
+    "angular-ui": "~0.4.0",
+    "angular-dragdrop": "~1.0.7",
+    "greensock": "~1.11.6",
+    "audio5js": "*",
+    "underscore": "~1.6.0",
+    "modernizr": "~2.7.2",
+    "jquery-ui-touch-punch-working": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",
     "angular-scenario": "1.2.15"
+  },
+  "resolutions": {
+    "jquery": "2.x",
+    "angular": "~1.2.16"
   }
 }
