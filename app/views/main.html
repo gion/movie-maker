@@ -1,36 +1,119 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">movie maker</h3>
-</div>
+	<div id="wrapper" ng-style='{"width":timelineWidth}' ng-class='{"device-tablet":isTablet}'>
+	    <div class="tabbable">
+			<ul class="nav nav-tabs">
+				<li ng-class="{'active' : pane.active}" ng-repeat="pane in panes" >
+					<a ng-click="selectTab(pane)" data-toggle="tab">{{pane.title}}</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane" ng-class="{'active' : pane.active}" ng-repeat="pane in panes" active="pane.active; selectTab()" heading="{{pane.title}}">
+					<div class="heading">
+						<ul class="nav nav-pills" ng-show="pane.subtab">
+							<li ng-class="{'active' : subpane.active}" ng-repeat="subpane in subpanes" >
+								<a ng-click="selectSubTab(subpane)" data-toggle="tab">{{subpane.title}}</a>
+							</li>
+						</ul>
+					</div>
+					<div ng-repeat="item in [] | pagination:currentPage:itemPerPage:pagedItems" ui-draggable ng-model="item" ui-options="{ revert: false, helper : 'clone', start : onDragStart }" class="items {{pane.title.toLowerCase()}}-item">
+						<img ng-src="{{item.thumb}}" class="img-polaroid"/>
+					</div>
+				</div>
+				<div class="pagination pagination-small pagination-left" ng-show="visiblePagination">
+					<ul>
+						<li ng-class="{disabled: currentPage == 0}">
+	                        <a href ng-click="prevPage()">«</a>
+	                    </li>
+	                    <li ng-repeat="n in allPages track by $index" ng-class="{active: $index == currentPage}" ng-click="setPage()">
+	                        <a href ng-bind="$index + 1">1</a>
+	                    </li>
+	                    <li ng-class="{disabled: currentPage == allPages.length - 1}">
+	                        <a href ng-click="nextPage()">»</a>
+	                    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="projector" ng-click="projectorClickHandler($event)" mm-tap="projectorClickHandler($event)" ng-class='{"timeline-loading" : !tracks.ready}'>
+			<div id="screen" style="width:{{screen.width}}px;height:{{screen.height}}px"></div>
+		</div>
+		<div class="clear"></div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+		<div id="timelines" ui-event="{mousemove:'updateTooltip($event)'}">
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+			<div id="tooltip" class="tooltip fade top" ng-style="{'left':tooltip.left}" ng-hide="!tracks.ready">
+				<div class="tooltip-arrow"></div>
+				<div class="tooltip-inner">{{tooltip.title}}</div>
+			</div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+			<div id="timeTracker" style="left:{{progress}}%" mm-dragwithinparent="changeProgress($event)"></div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+			<div id="ruler" ng-click="changeProgress($event)">
+				<div ng-repeat="n in [] | range:101" class='unit' ng-class='{"visible-unit":n%10==0,"bigger-unit":n%5==0}' style='left:{{n}}%'>
+					<span>{{n}}%</span>
+				</div>
+			</div>
 
-<div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+			<ul id="visual-timeline" data-track-type="visual" ui-sortable ng-model="tracks.elements.visual" ui-droppable ui-options="{ drop: onDrop, revert : false, accept : '.visual-item'}">
+				<li ng-repeat="item in tracks.elements.visual" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" >
+					<div>
+						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
+					</div>
+				</li>
+				<li class="clear"></li>
+			</ul>
+
+			<ul id="audio-timeline" data-track-type="audio" ng-model="tracks.elements.audio" ui-droppable ui-options="{ drop: onDrop, revert : false, accept : '.sound-item'}">
+				<li ng-repeat="item in tracks.elements.audio" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" mm-dragwithinparent="moveAudioItem($event)" >
+					<div>
+						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
+					</div>
+				</li>
+				<li class="clear"></li>
+			</ul>
+
+			<ul id="music-timeline" data-track-type="music"  ng-model="tracks.elements.music" ui-droppable ui-options="{ drop: onDrop, revert : false, accept : '.music-item'}">
+				<li ng-repeat="item in tracks.elements.music" style="margin-left:{{item.cssMarginLeft}}%;width:{{item.cssWidth}}%;left:{{item.cssLeft}}%" ng-class="{'active' : !!item.active}" >
+					<div>
+						<img ng-src="{{item.thumb}}"  alt="{{item.name}}" class="thumbnail" />
+						<span class="remove-item" ng-click="removeItemFromTrack($event)"></span>
+					</div>
+				</li>
+				<li class="clear"></li>
+			</ul>
+		</div>
+
+		<div class="download-btn-wapper">
+			<div class="button"  ng-click="downloadMovie($event)">
+				<div class="outer">
+					<div class="height">
+						<div class="inner">
+							save movie
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="loading" ng-show="loading">
+			<div class="loading">
+				<div class="cube cube1"></div>
+				<div class="cube cube2"></div>
+				<div class="cube cube3"></div>
+				<div class="cube cube4"></div>
+				<div class="cube cube5"></div>
+				<div class="cube cube6"></div>
+				<div class="cube cube7"></div>
+				<div class="cube cube8"></div>
+			</div>
+			<p class="loading-message">
+				Your video is currently being processed.
+				<br/>
+				This might take a couple of minutes.
+				<br/>
+				 Please wait or click <a href="#" ng-click="cancelDownload($event)"> here </a>to cancel.
+			</p>
+		</div>
+	</div>
 </div>

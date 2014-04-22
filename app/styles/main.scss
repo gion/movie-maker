@@ -1,9 +1,15 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
-@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
 
 // bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+
+@import "compass/css3";
+
+// the style from the older version of the app
+@import "old-style";
 
 .browsehappy {
     margin: 0.2em 0;
@@ -91,4 +97,22 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+.nav a {
+  cursor: pointer;
+}
+
+.pagination {
+  ul {
+    padding-left: 0;
+    li {
+      display: inline;
+      list-style-type: none;
+
+      &.active, &:hover {
+        font-size: 18px;
+      }
+    }
+  }
 }
